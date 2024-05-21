@@ -7,26 +7,18 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI daysLeftText;
     [SerializeField] private TextMeshProUGUI riskTakenText;
 
-    private void Start()
+    private void FixedUpdate()
     {
-        InvokeRepeating("UpdateUI", 0, 1);
-    }
+        moneyText.text = $"Money: ${GameManager.Instance.Money}";
+        daysLeftText.text = $"Days Left: {GameManager.Instance.TotalDays}";
 
-    private void UpdateUI()
-    {
-        if (GameManager.Instance != null)
+        if (GameManager.Instance.RiskTotal > 0)
         {
-            moneyText.text = $"Money: ${GameManager.Instance.Money}";
-            daysLeftText.text = $"Days Left: {GameManager.Instance.TotalDays}";
-
-            if (GameManager.Instance.RiskTotal > 0)
-            {
-                float riskPercentage = (float)GameManager.Instance.RiskTaken / GameManager.Instance.RiskTotal * 100;
-            }
-            else
-            {
-                riskTakenText.text = "Risk Taken: 0%";
-            }
+            float riskPercentage = (float)GameManager.Instance.RiskTaken / GameManager.Instance.RiskTotal * 100;
+        }
+        else
+        {
+            riskTakenText.text = "Risk Taken: 0%";
         }
     }
 }
