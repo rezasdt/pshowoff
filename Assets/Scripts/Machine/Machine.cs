@@ -21,6 +21,8 @@ public class Machine : ScriptableObject
     [field: SerializeField]
     public float UpgradeSuccessChance { get; private set; }
     [field: SerializeField]
+    public GameObject Prefab { get; private set; }
+    [field: SerializeField]
     public Texture2D Thumbnail { get; private set; }
     [field: SerializeField]
     public Machine Upgrade { get; private set; }

@@ -20,12 +20,14 @@ public class ObjectPlacer : MonoBehaviour
     {
         _inputManager.Move += OnMove;
         _inputManager.Discard += OnDiscard;
+        _inputManager.Place += OnPlace;
     }
 
     private void OnDisable()
     {
         _inputManager.Move -= OnMove;
         _inputManager.Discard -= OnDiscard;
+        _inputManager.Place -= OnPlace;
     }
 
     private void Start()
@@ -103,5 +105,12 @@ public class ObjectPlacer : MonoBehaviour
     {
         Vector3Int gridPos = _grid.WorldToCell(pPosition);
         _cellIndicator.transform.position = _grid.CellToWorld(gridPos);
+    }
+
+    private void OnPlace(Vector3 pPosition)
+    {
+        if (SelectedMachine == null) return;
+        Vector3Int gridPos = _grid.WorldToCell(pPosition);
+        Instantiate(SelectedMachine.Prefab, _grid.CellToWorld(gridPos), Quaternion.identity);
     }
 }

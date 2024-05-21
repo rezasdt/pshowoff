@@ -15,7 +15,7 @@ public class InputManager : MonoBehaviour
     private const float MAX_RAYCAST_DISTANCE = 100f;
 
     public event Action<Vector3> Move = delegate { };
-    public event Action<Vector2> Place = delegate { };
+    public event Action<Vector3> Place = delegate { };
     public event Action<GameObject, Vector2> Select = delegate { };
     public event Action Discard = delegate { };
 
@@ -68,10 +68,14 @@ public class InputManager : MonoBehaviour
         if (selectedPlaceable != null)
         {
             Select.Invoke(selectedPlaceable, pointerPos);
+            return;
         }
-        else if (GetSelectedPlacePoint(pointerPos) != null)
+
+        Vector3? placePoitn =
+            GetSelectedPlacePoint(pointerPos);
+        if (placePoitn != null)
         {
-            Place.Invoke(pointerPos);
+            Place.Invoke(placePoitn.Value);
         }
     }
 
