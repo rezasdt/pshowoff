@@ -17,7 +17,7 @@ public class UIManager : MonoBehaviour
         if (GameManager.Instance != null)
         {
             moneyText.text = $"Money: ${GameManager.Instance.Money}";
-            daysLeftText.text = $"Days Left: {GameManager.Instance.DaysLeft}";
+            daysLeftText.text = $"Days Left: {GameManager.Instance.TotalDays}";
 
             if (GameManager.Instance.RiskTotal > 0)
             {

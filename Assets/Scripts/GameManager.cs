@@ -9,7 +9,8 @@ public class GameManager : MonoBehaviour
     public int Money;
     [HideInInspector] public int RiskTaken = 0;
     [HideInInspector] public int RiskTotal = 1;
-    [field: SerializeField] public int DaysLeft { get; private set; }
+    [field: SerializeField] public int TotalDays { get; private set; }
+    [SerializeField] private int _dayLength = 6;
 
     private string _sceneToLoadWhenDaysEnd = "Results";
     
@@ -29,12 +30,12 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator CountdownDays()
     {
-        while (DaysLeft > 0)
+        while (TotalDays > 0)
         {
-            yield return new WaitForSeconds(6);
-            DaysLeft--;
+            yield return new WaitForSeconds(_dayLength);
+            TotalDays--;
 
-            if (DaysLeft == 0)
+            if (TotalDays == 0)
             {
                 LoadEndScene();
             }

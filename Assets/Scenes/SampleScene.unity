@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 166313133}
   - component: {fileID: 166313132}
   m_Layer: 9
-  m_Name: Plane
+  m_Name: Place
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1650,7 +1650,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5315901330780005786, guid: 70756e40023f06f4aabfbb1eca04c404,
         type: 3}
+      propertyPath: _dayLength
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315901330780005786, guid: 70756e40023f06f4aabfbb1eca04c404,
+        type: 3}
       propertyPath: <DaysLeft>k__BackingField
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315901330780005786, guid: 70756e40023f06f4aabfbb1eca04c404,
+        type: 3}
+      propertyPath: <TotalDays>k__BackingField
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6945896150005977395, guid: 70756e40023f06f4aabfbb1eca04c404,
