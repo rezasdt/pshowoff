@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c9305039f92f6142bafb10aaab63e19, type: 3}
+  m_Name: Machine1
+  m_EditorClassIdentifier: 
+  <Cost>k__BackingField: 0
+  <Size>k__BackingField: {x: 1, y: 1}
+  <Earn>k__BackingField: 0
+  <ResaleValue>k__BackingField: 0
+  <EarningInterval>k__BackingField: 0
+  <UpgradeSuccessChance>k__BackingField: 0
+  <Thumbnail>k__BackingField: {fileID: 2800000, guid: a48ab9d6d3bea024db6aea252b84ef6a,
+    type: 3}
+  <Upgrade>k__BackingField: {fileID: 0}

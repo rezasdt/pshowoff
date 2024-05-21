@@ -47,5 +47,5 @@ MonoBehaviour:
   Money: 0
   RiskTaken: 0
   RiskTotal: 0
-  <DaysLeft>k__BackingField: 0
-  sceneToLoadWhenDaysEnd: Results
+  <TotalDays>k__BackingField: 0
+  _dayLength: 0
