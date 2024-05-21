@@ -7,8 +7,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public int Money;
-    public int RiskTaken;
-    public int RiskTotal;
+    [HideInInspector] public int RiskTaken = 0;
+    [HideInInspector] public int RiskTotal = 1;
     [field: SerializeField] public int DaysLeft { get; private set; }
 
     private string _sceneToLoadWhenDaysEnd = "Results";
@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     {
         while (DaysLeft > 0)
         {
-            yield return new WaitForSeconds(60);
+            yield return new WaitForSeconds(6);
             DaysLeft--;
 
             if (DaysLeft == 0)
