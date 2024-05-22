@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class MachineController : MonoBehaviour
@@ -6,11 +7,15 @@ public class MachineController : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating("Earn", 0, _machine.EarningInterval);
+        StartCoroutine(EarnCoroutine());
     }
 
-    private void Earn()
+    private IEnumerator EarnCoroutine()
     {
-        GameManager.Instance.Money += _machine.Earn;
+        while (true)
+        {
+            GameManager.Instance.Money += _machine.Earn;
+            yield return new WaitForSeconds(_machine.EarningInterval);
+        }
     }
 }

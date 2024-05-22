@@ -110,7 +110,10 @@ public class ObjectPlacer : MonoBehaviour
 
     private void OnPlace(Vector3 pPosition)
     {
-        if (SelectedMachine == null) return;
+        if (SelectedMachine == null ||
+            GameManager.Instance.Money < SelectedMachine.Cost)
+            return;
+        GameManager.Instance.Money -= SelectedMachine.Cost;
         Vector3Int gridPos = _grid.WorldToCell(pPosition);
         Instantiate(SelectedMachine.Prefab, _grid.CellToWorld(gridPos), Quaternion.identity);
     }
