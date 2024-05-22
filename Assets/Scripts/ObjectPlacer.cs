@@ -14,7 +14,7 @@ public class ObjectPlacer : MonoBehaviour
     [SerializeField] private GameObject _machineItemUIPrefab;
     [SerializeField] private RectTransform _uiPanel;
 
-    private List<(MachineItemUI machineItemUI, Tier tier)> _machineItemUIList = new List<(MachineItemUI machineItemUI, Tier tier)>();
+    private List<(MachineItemUI machineItemUI, Tier tier)> _machineItemUIList = new();
 
     private void OnEnable()
     {
@@ -33,11 +33,18 @@ public class ObjectPlacer : MonoBehaviour
     private void Start()
     {
         PopulateUIPanel();
+        OnDiscard();
     }
 
     private void Update()
     {
         UpdateMachineItemUIStates();
+
+        if (SelectedMachine != null)
+        {
+            _cellIndicator.SetActive(true);
+            _gridShader.SetActive(true);
+        }
     }
 
     private void PopulateUIPanel()
@@ -73,12 +80,6 @@ public class ObjectPlacer : MonoBehaviour
 
     private void UpdateMachineItemUIStates()
     {
-        if (GameManager.Instance == null)
-        {
-            Debug.LogError("GameManager.Instance is not set.");
-            return;
-        }
-
         float currentMoney = GameManager.Instance.Money;
 
         foreach (var item in _machineItemUIList)
