@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8494136525697079186}
   - component: {fileID: -5442252560449282122}
   m_Layer: 10
-  m_Name: Cube1Parent
+  m_Name: Cube11Parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99a5b1a71770b9e4eb8d054d9a608308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Machine>k__BackingField: {fileID: 11400000, guid: f0080f156136f29478c9d082d3bf4344,
+  <Machine>k__BackingField: {fileID: 11400000, guid: 7e87d7cea47b6f649862862917f39cab,
     type: 2}
 --- !u!1 &4163615355970898269
 GameObject:
@@ -109,7 +109,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 061a03f8dc75b75418ed8f63ec6dbb8d, type: 2}
+  - {fileID: 2100000, guid: 0a57af0c34bcd914aa14a4a89f7cad31, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

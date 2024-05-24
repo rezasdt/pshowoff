@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: MachinesDatabase
   m_EditorClassIdentifier: 
   tiers:
-  - stageAmount: 500
+  - stageAmount: 100
     machinesUnlocked:
     - {fileID: 11400000, guid: f0080f156136f29478c9d082d3bf4344, type: 2}
-  - stageAmount: 1000
+  - stageAmount: 200
     machinesUnlocked:
     - {fileID: 11400000, guid: 02f1f6e24445d1347925e054d1129f05, type: 2}
-  - stageAmount: 1500
+  - stageAmount: 300
     machinesUnlocked:
     - {fileID: 11400000, guid: c9e551c033f73724cb15b59356df9d01, type: 2}
