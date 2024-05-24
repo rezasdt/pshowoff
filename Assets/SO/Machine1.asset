@@ -15,11 +15,12 @@ MonoBehaviour:
   <Cost>k__BackingField: 200
   <Size>k__BackingField: {x: 1, y: 1}
   <Earn>k__BackingField: 5
-  <ResaleValue>k__BackingField: 0
+  <ResaleValue>k__BackingField: 500
   <EarningInterval>k__BackingField: 2
-  <UpgradeSuccessChance>k__BackingField: 0
+  <UpgradeSuccessChance>k__BackingField: 66.2
   <Prefab>k__BackingField: {fileID: 592155390675207857, guid: 8b67029fe8459954dbf185834d2a4e2b,
     type: 3}
   <Thumbnail>k__BackingField: {fileID: 2800000, guid: 253f0181aff27424cad2e26eb984b426,
     type: 3}
-  <Upgrade>k__BackingField: {fileID: 0}
+  <Upgrade>k__BackingField: {fileID: 11400000, guid: 02f1f6e24445d1347925e054d1129f05,
+    type: 2}

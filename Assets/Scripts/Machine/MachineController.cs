@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class MachineController : MonoBehaviour
 {
-    [SerializeField] private Machine _machine;
+    [field: SerializeField] public Machine Machine { get; private set; }
 
     private void Start()
     {
@@ -14,8 +14,8 @@ public class MachineController : MonoBehaviour
     {
         while (true)
         {
-            GameManager.Instance.Money += _machine.Earn;
-            yield return new WaitForSeconds(_machine.EarningInterval);
+            GameManager.Instance.Money += Machine.Earn;
+            yield return new WaitForSeconds(Machine.EarningInterval);
         }
     }
 }

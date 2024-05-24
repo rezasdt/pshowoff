@@ -18,6 +18,7 @@ public class InputManager : MonoBehaviour
     public event Action<Vector3> Place = delegate { };
     public event Action<GameObject, Vector2> Select = delegate { };
     public event Action Discard = delegate { };
+    public event Action Pan = delegate { }; // refactor with parameter
 
     private PlayerControls _playerControls;
     private PlayerControls.PlayerActions _playerActions;
@@ -35,6 +36,7 @@ public class InputManager : MonoBehaviour
         _playerActions.Move.performed += OnMove;
         _playerActions.Press.started += OnPlaceOrSelect;
         _playerActions.Discard.performed += OnDiscard;
+        _playerActions.Pan.performed += OnPan;
     }
 
     private void OnDisable()
@@ -43,6 +45,12 @@ public class InputManager : MonoBehaviour
         _playerActions.Move.performed -= OnMove;
         _playerActions.Press.started -= OnPlaceOrSelect;
         _playerActions.Discard.performed -= OnDiscard;
+        _playerActions.Pan.performed -= OnPan;
+    }
+
+    private void OnPan(InputAction.CallbackContext pContext)
+    {
+        Pan.Invoke();
     }
 
     private void OnMove(InputAction.CallbackContext pContext)
