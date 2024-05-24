@@ -4,6 +4,7 @@ using TMPro;
 
 public class MachineTooltipUI : MonoBehaviour
 {
+    [SerializeField] private Popup _popup;
     [SerializeField] private Button _upgradeButton;
     [SerializeField] private Button _sellButton;
     [SerializeField] private TextMeshProUGUI _infoText;
@@ -38,13 +39,13 @@ public class MachineTooltipUI : MonoBehaviour
         if (Random.Range(0f, 100f) < MachineController.Machine.UpgradeSuccessChance)
         {
             Instantiate(MachineController.Machine.Upgrade.Prefab, MachineController.transform.position, Quaternion.identity);
-            
+            _popup.Create("Upgrade successful");
         }
         else // Failed upgrade
         {
             UpgradeFailed.Invoke();
+            _popup.Create("Upgrade failed. You lost the machine.");
         }
-        GameManager.Instance.RiskTaken += 100 - MachineController.Machine.Upgrade.UpgradeSuccessChance;
         Destroy(MachineController.gameObject);
         gameObject.SetActive(false);
         GameManager.Instance.Money -= MachineController.Machine.Upgrade.Cost;
