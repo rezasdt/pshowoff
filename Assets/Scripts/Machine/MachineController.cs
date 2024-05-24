@@ -7,6 +7,8 @@ public class MachineController : MonoBehaviour
 
     private void Start()
     {
+        if (Machine.Upgrade != null)
+            GameManager.Instance.RiskTotal += 100 - Machine.Upgrade.UpgradeSuccessChance;
         StartCoroutine(EarnCoroutine());
     }
 

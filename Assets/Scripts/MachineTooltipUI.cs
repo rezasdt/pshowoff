@@ -44,6 +44,7 @@ public class MachineTooltipUI : MonoBehaviour
         {
             UpgradeFailed.Invoke();
         }
+        GameManager.Instance.RiskTaken += 100 - MachineController.Machine.Upgrade.UpgradeSuccessChance;
         Destroy(MachineController.gameObject);
         gameObject.SetActive(false);
         GameManager.Instance.Money -= MachineController.Machine.Upgrade.Cost;

@@ -23,7 +23,7 @@ public class Machine : ScriptableObject
     public float EarningInterval { get; private set; }
     [field: Range(0, 100)]
     [field: SerializeField]
-    public float UpgradeSuccessChance { get; private set; }
+    public int UpgradeSuccessChance { get; private set; }
     [field: SerializeField]
     [ExcludeFromToString]
     public GameObject Prefab { get; private set; }
