@@ -45,16 +45,16 @@ public class ChallengeManager : MonoBehaviour
     private void Accept()
     {
         int chance = 100 - _currentChallenge.Challenge.SuccessChance;
-        int money = _currentChallenge.Challenge.Reward;
+        int money = _currentChallenge.Challenge.RiskRewardAmount;
         if (Random.Range(0f, 100f) < _currentChallenge.Challenge.SuccessChance)
         {
             GameManager.Instance.Money += money;
-            _popup.Create($"Challenge successful. You gained ${_currentChallenge.Challenge.Reward}");
+            _popup.Create(_currentChallenge.Challenge.SuccessMessage);
         }
         else
         {
             GameManager.Instance.Money -= money;
-            _popup.Create($"Challenge failed. You lost ${_currentChallenge.Challenge.Reward}");
+            _popup.Create(_currentChallenge.Challenge.FailMessage);
         }
         GameManager.Instance.RiskTaken += chance;
         GameManager.Instance.RiskTotal += chance;

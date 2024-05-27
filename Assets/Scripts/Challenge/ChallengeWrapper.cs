@@ -20,7 +20,7 @@ public class ChallengeWrapper : MonoBehaviour
     private void OnEnable()
     {
         _successChanceText.text = Challenge.SuccessChance.ToString() + "%";
-        _rewardText.text = "$" + Challenge.Reward.ToString();
+        _rewardText.text = "$" + Challenge.RiskRewardAmount.ToString();
         _descriptionText.text = Challenge.Description.ToString();
     }
 
