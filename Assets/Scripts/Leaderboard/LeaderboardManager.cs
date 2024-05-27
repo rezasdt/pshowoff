@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 using Unity.Services.Core;
 using Newtonsoft.Json.Linq;
 using System.Text;
+using TMPro;
 
 
 public class LeaderboardManager : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI _text;
+
     async void Start()
     {
         await UnityServices.InitializeAsync();
@@ -68,6 +71,6 @@ public class LeaderboardManager : MonoBehaviour
             sb.AppendLine($"{rank}\t{playerName}\t{score}");
         }
 
-        Debug.Log(sb.ToString());
+        _text.text = sb.ToString();
     }
 }
