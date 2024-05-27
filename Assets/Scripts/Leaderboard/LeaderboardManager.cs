@@ -1,87 +1,73 @@
-using Unity.Services.CloudCode;
-using Unity.Services.Leaderboards;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using UnityEngine;
-using Unity.Services.Leaderboards.Exceptions;
 using Newtonsoft.Json;
-using UnityEngine.SocialPlatforms.Impl;
+using Unity.Services.Leaderboards;
+using Unity.Services.Authentication;
+using System.Threading.Tasks;
+using Unity.Services.Core;
+using Newtonsoft.Json.Linq;
+using System.Text;
+
 
 public class LeaderboardManager : MonoBehaviour
 {
-    public async Task SavePlayerDataAndScore(string playerName, int playerScore)
+    async void Start()
     {
-        var data = new Dictionary<string, object>
-        {
-            { "playerName", playerName },
-            { "playerScore", playerScore }
-        };
-
+        await UnityServices.InitializeAsync();
+        await SignInAnonymouslyAsync();
+        await AddScore("top_players", 33);
+        await GetPlayerScore("top_players");
+        await GetScores("top_players");
+    }
+    private async Task SignInAnonymouslyAsync()
+    {
         try
         {
-            await LeaderboardsService.Instance.AddPlayerScoreAsync("top_players", playerScore);
-            Debug.Log("Player score posted to leaderboard");
+            await AuthenticationService.Instance.SignInAnonymouslyAsync();
+            Debug.Log("Signed in anonymously");
         }
-        catch (LeaderboardsException ex)
+        catch (AuthenticationException ex)
         {
-            Debug.LogError($"Failed to post score to leaderboard: {ex}");
+            Debug.LogError($"Sign in failed: {ex}");
         }
     }
-
-    //public async Task GetTopScores()
-    //{
-    //    try
-    //    {
-    //        var response = await CloudCodeService.Instance.CallEndpointAsync<List<ScoreEntry>>("GetTopScores", null);
-
-    //        Debug.Log("Top scores retrieved");
-    //        foreach (var score in response)
-    //        {
-    //            Debug.Log($"{score.PlayerName}: {score.PlayerScore}");
-    //        }
-    //    }
-    //    catch (CloudCodeException ex)
-    //    {
-    //        Debug.LogError($"Failed to retrieve top scores: {ex}");
-    //    }
-    //}
-
-    //public async Task GetTopScores()
-    //{
-    //    try
-    //    {
-    //        var leaderboardId = "top_players";
-    //        var versionId = "your_version_id";
-
-    //        var scoresResponse = await LeaderboardsService.Instance.GetVersionScoresAsync(leaderboardId, versionId);
-
-    //        // Log the retrieved scores
-    //        Debug.Log("Top scores retrieved");
-    //        foreach (var score in scoresResponse.Entries)
-    //        {
-    //            Debug.Log($"{score.PlayerName}: {score.Score}");
-    //        }
-    //    }
-    //    catch (LeaderboardsException ex)
-    //    {
-    //        Debug.LogError($"Failed to retrieve top scores: {ex.Message}");
-    //    }
-    //}
-    public async Task GetPlayerRange()
+    public async Task AddScore(string leaderboardId, int score)
     {
-        // Returns a total of 11 entries (the given player plus 5 on either side)
-        var rangeLimit = 5;
-        var scoresResponse = await LeaderboardsService.Instance.GetPlayerRangeAsync(
-            "top_players",
-            new GetPlayerRangeOptions { RangeLimit = rangeLimit }
-        );
-        Debug.Log(JsonConvert.SerializeObject(scoresResponse));
+        var playerEntry = await LeaderboardsService.Instance
+            .AddPlayerScoreAsync(leaderboardId, score);
+        Debug.Log(JsonConvert.SerializeObject(playerEntry));
     }
-}
 
-[System.Serializable]
-public class ScoreEntry
-{
-    public string PlayerName;
-    public int PlayerScore;
+    public async Task GetPlayerScore(string leaderboardId)
+    {
+        var scoreResponse = await LeaderboardsService.Instance
+            .GetPlayerScoreAsync(leaderboardId);
+        Debug.Log(JsonConvert.SerializeObject(scoreResponse));
+    }
+
+    //public async Task GetScores(string leaderboardId)
+    //{
+    //    var scoresResponse = await LeaderboardsService.Instance
+    //        .GetScoresAsync(leaderboardId);
+    //    Debug.Log(JsonConvert.SerializeObject(scoresResponse));
+    //}
+    public async Task GetScores(string leaderboardId)
+    {
+        var scoresResponse = await LeaderboardsService.Instance
+            .GetScoresAsync(leaderboardId);
+
+        JObject scoresJson = JObject.Parse(JsonConvert.SerializeObject(scoresResponse));
+
+        StringBuilder sb = new StringBuilder();
+
+        foreach (var result in scoresJson["results"])
+        {
+            string playerName = result["playerName"].ToString();
+            int rank = result["rank"].ToObject<int>();
+            float score = result["score"].ToObject<float>();
+
+            sb.AppendLine($"{rank}\t{playerName}\t{score}");
+        }
+
+        Debug.Log(sb.ToString());
+    }
 }
