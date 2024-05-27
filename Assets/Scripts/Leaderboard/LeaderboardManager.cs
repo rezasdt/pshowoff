@@ -17,7 +17,7 @@ public class LeaderboardManager : MonoBehaviour
     {
         await UnityServices.InitializeAsync();
         await SignInAnonymouslyAsync();
-        await AddScore("top_players", 33);
+        await AddScore("top_players", GameManager.Instance.Money);
         await GetPlayerScore("top_players");
         await GetScores("top_players");
     }
