@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71b05a0b8eeb2c847b80ab61e40c0e67, type: 3}
+  m_Name: Stage Database
+  m_EditorClassIdentifier: 
+  <Stages>k__BackingField:
+  - <Name>k__BackingField: Startup
+    <RequiredThreshold>k__BackingField: 500
+    <StarterMachines>k__BackingField:
+    - {fileID: 11400000, guid: 20628924cddc5654e845d965043c067c, type: 2}
+    <Challenges>k__BackingField:
+    - {fileID: 11400000, guid: 67c73748fe9aff445a71941e34d95ce1, type: 2}
+    - {fileID: 11400000, guid: 9161c19c9feca0d4a8e35f9f03495727, type: 2}
+  - <Name>k__BackingField: Growth
+    <RequiredThreshold>k__BackingField: 2500
+    <StarterMachines>k__BackingField:
+    - {fileID: 11400000, guid: 67852f5d426be7d439cd16f77c56d3c8, type: 2}
+    <Challenges>k__BackingField:
+    - {fileID: 11400000, guid: 2200d80a3e98a8e428a1ec90457fc9e9, type: 2}
+    - {fileID: 11400000, guid: 2c8f1e38040588a42959ddb7dae70456, type: 2}
+  - <Name>k__BackingField: Expansion
+    <RequiredThreshold>k__BackingField: 6500
+    <StarterMachines>k__BackingField:
+    - {fileID: 11400000, guid: 9ccef17b946f94841a220534e625ddf3, type: 2}
+    <Challenges>k__BackingField:
+    - {fileID: 11400000, guid: 4bd365c6fe17f2f4fb3c2aedd895ec4f, type: 2}
+    - {fileID: 11400000, guid: 76f873e03365b4d44acfbcea2b1f125d, type: 2}
+  - <Name>k__BackingField: Maturity
+    <RequiredThreshold>k__BackingField: 10000
+    <StarterMachines>k__BackingField: []
+    <Challenges>k__BackingField:
+    - {fileID: 11400000, guid: 204a7f107ff7c5f4f8795c88b7faba2b, type: 2}
+    - {fileID: 11400000, guid: a8ca5218350f173448d706a636fece2d, type: 2}
+  - <Name>k__BackingField: Unicorn
+    <RequiredThreshold>k__BackingField: 20000
+    <StarterMachines>k__BackingField: []
+    <Challenges>k__BackingField:
+    - {fileID: 11400000, guid: 861cd081c63c59744bb504d81f341485, type: 2}
+    - {fileID: 11400000, guid: 5469c2eb3d03b1946a9e6b424abd99c0, type: 2}

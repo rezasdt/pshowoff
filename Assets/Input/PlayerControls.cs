@@ -28,7 +28,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             ""id"": ""ec0e6bbb-ad9b-44d9-be8a-7e3ca3e3bd2a"",
             ""actions"": [
                 {
-                    ""name"": ""Move"",
+                    ""name"": ""PointerMove"",
                     ""type"": ""Value"",
                     ""id"": ""5d7bdea5-6818-429e-8628-1a6c9dbe2f0a"",
                     ""expectedControlType"": ""Vector2"",
@@ -37,7 +37,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Press"",
+                    ""name"": ""Point"",
                     ""type"": ""Button"",
                     ""id"": ""c2709b15-7fb3-4dbb-b98b-118d07e022e6"",
                     ""expectedControlType"": ""Button"",
@@ -55,7 +55,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Discard"",
+                    ""name"": ""DiscardSelection"",
                     ""type"": ""Button"",
                     ""id"": ""0409d591-6fa2-4c77-af35-c5c385cfe9ac"",
                     ""expectedControlType"": ""Button"",
@@ -66,7 +66,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             ],
             ""bindings"": [
                 {
-                    ""name"": ""Drag"",
+                    ""name"": ""One Modifier"",
                     ""id"": ""1bf4b271-902c-4b9c-a1a4-4bcbda99bdf8"",
                     ""path"": ""OneModifier"",
                     ""interactions"": """",
@@ -105,7 +105,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": ""MultiTap"",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Discard"",
+                    ""action"": ""DiscardSelection"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -116,20 +116,42 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Move"",
+                    ""action"": ""PointerMove"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""9e3d95c7-b31e-4d5a-a785-ce01282f0ff0"",
+                    ""name"": ""One Modifier"",
+                    ""id"": ""58a0d36f-e3f5-4a0c-b95c-247a3f9ad83b"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Point"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""fd875f53-979b-4cb9-9a8c-d0df738b7285"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Press"",
+                    ""action"": ""Point"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""8cc15e35-d8d0-4290-b779-79c08ce51b35"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Point"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -138,10 +160,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
-        m_Player_Press = m_Player.FindAction("Press", throwIfNotFound: true);
+        m_Player_PointerMove = m_Player.FindAction("PointerMove", throwIfNotFound: true);
+        m_Player_Point = m_Player.FindAction("Point", throwIfNotFound: true);
         m_Player_Pan = m_Player.FindAction("Pan", throwIfNotFound: true);
-        m_Player_Discard = m_Player.FindAction("Discard", throwIfNotFound: true);
+        m_Player_DiscardSelection = m_Player.FindAction("DiscardSelection", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -203,18 +225,18 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     // Player
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
-    private readonly InputAction m_Player_Move;
-    private readonly InputAction m_Player_Press;
+    private readonly InputAction m_Player_PointerMove;
+    private readonly InputAction m_Player_Point;
     private readonly InputAction m_Player_Pan;
-    private readonly InputAction m_Player_Discard;
+    private readonly InputAction m_Player_DiscardSelection;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
         public PlayerActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Move => m_Wrapper.m_Player_Move;
-        public InputAction @Press => m_Wrapper.m_Player_Press;
+        public InputAction @PointerMove => m_Wrapper.m_Player_PointerMove;
+        public InputAction @Point => m_Wrapper.m_Player_Point;
         public InputAction @Pan => m_Wrapper.m_Player_Pan;
-        public InputAction @Discard => m_Wrapper.m_Player_Discard;
+        public InputAction @DiscardSelection => m_Wrapper.m_Player_DiscardSelection;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -224,34 +246,34 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_PlayerActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_PlayerActionsCallbackInterfaces.Add(instance);
-            @Move.started += instance.OnMove;
-            @Move.performed += instance.OnMove;
-            @Move.canceled += instance.OnMove;
-            @Press.started += instance.OnPress;
-            @Press.performed += instance.OnPress;
-            @Press.canceled += instance.OnPress;
+            @PointerMove.started += instance.OnPointerMove;
+            @PointerMove.performed += instance.OnPointerMove;
+            @PointerMove.canceled += instance.OnPointerMove;
+            @Point.started += instance.OnPoint;
+            @Point.performed += instance.OnPoint;
+            @Point.canceled += instance.OnPoint;
             @Pan.started += instance.OnPan;
             @Pan.performed += instance.OnPan;
             @Pan.canceled += instance.OnPan;
-            @Discard.started += instance.OnDiscard;
-            @Discard.performed += instance.OnDiscard;
-            @Discard.canceled += instance.OnDiscard;
+            @DiscardSelection.started += instance.OnDiscardSelection;
+            @DiscardSelection.performed += instance.OnDiscardSelection;
+            @DiscardSelection.canceled += instance.OnDiscardSelection;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
         {
-            @Move.started -= instance.OnMove;
-            @Move.performed -= instance.OnMove;
-            @Move.canceled -= instance.OnMove;
-            @Press.started -= instance.OnPress;
-            @Press.performed -= instance.OnPress;
-            @Press.canceled -= instance.OnPress;
+            @PointerMove.started -= instance.OnPointerMove;
+            @PointerMove.performed -= instance.OnPointerMove;
+            @PointerMove.canceled -= instance.OnPointerMove;
+            @Point.started -= instance.OnPoint;
+            @Point.performed -= instance.OnPoint;
+            @Point.canceled -= instance.OnPoint;
             @Pan.started -= instance.OnPan;
             @Pan.performed -= instance.OnPan;
             @Pan.canceled -= instance.OnPan;
-            @Discard.started -= instance.OnDiscard;
-            @Discard.performed -= instance.OnDiscard;
-            @Discard.canceled -= instance.OnDiscard;
+            @DiscardSelection.started -= instance.OnDiscardSelection;
+            @DiscardSelection.performed -= instance.OnDiscardSelection;
+            @DiscardSelection.canceled -= instance.OnDiscardSelection;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -271,9 +293,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     public PlayerActions @Player => new PlayerActions(this);
     public interface IPlayerActions
     {
-        void OnMove(InputAction.CallbackContext context);
-        void OnPress(InputAction.CallbackContext context);
+        void OnPointerMove(InputAction.CallbackContext context);
+        void OnPoint(InputAction.CallbackContext context);
         void OnPan(InputAction.CallbackContext context);
-        void OnDiscard(InputAction.CallbackContext context);
+        void OnDiscardSelection(InputAction.CallbackContext context);
     }
 }

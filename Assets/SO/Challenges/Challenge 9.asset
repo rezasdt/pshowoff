@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8abba68ad1ca4f24d8f1d5c21384e50a, type: 3}
+  m_Name: Challenge 9
+  m_EditorClassIdentifier: 
+  <Title>k__BackingField: Host a Product Launch Event
+  <Description>k__BackingField: Organize a grand event to unveil your new product.
+  <Cost>k__BackingField: 3500
+  <SuccessChance>k__BackingField: 65
+  <RewardAmount>k__BackingField: 10000
+  <SuccessMessage>k__BackingField: 'Your product launch event is a hit. The venue
+    is packed, and pre-orders exceed expectations.
+
+    Result: You gain $10,000.
+    You''ve set a new launch standard!'
+  <FailMessage>k__BackingField: 'Technical issues ruin your product launch event.
+    The live demo fails, and the audience loses interest.
+
+    Result: You lose $3,500.
+    Invest in better tech next time.'

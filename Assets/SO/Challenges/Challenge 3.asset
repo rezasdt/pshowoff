@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8abba68ad1ca4f24d8f1d5c21384e50a, type: 3}
+  m_Name: Challenge 3
+  m_EditorClassIdentifier: 
+  <Title>k__BackingField: Sponsor a Tech Conference
+  <Description>k__BackingField: Sponsor a major tech conference to boost your brand's
+    visibility.
+  <Cost>k__BackingField: 2000
+  <SuccessChance>k__BackingField: 75
+  <RewardAmount>k__BackingField: 7000
+  <SuccessMessage>k__BackingField: 'Your sponsorship at the tech conference is a
+    hit. Everyone sees your brand and talks about it. You make a ton of new contacts.
+
+    Result:
+    You gain $7,000. You''re a conference legend!'
+  <FailMessage>k__BackingField: 'Your sponsorship gets overshadowed by a big announcement
+    from another company. Your booth is stuck next to the bathrooms, and hardly anyone
+    stops by.
+
+    Result: You lose $2,000. At least you met the janitor.'
