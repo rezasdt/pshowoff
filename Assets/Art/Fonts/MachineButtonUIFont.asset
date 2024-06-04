@@ -120,9 +120,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: MachineButtonUIFont
   m_EditorClassIdentifier: 
-  hashCode: -544400354
+  hashCode: -957630916
   material: {fileID: -4736443176744698345}
-  materialHashCode: 1794587902
+  materialHashCode: 1916047772
   m_Version: 1.1.0
   m_SourceFontFileGUID: 01fdeaa527ec88544ac184e24e95951c
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 01fdeaa527ec88544ac184e24e95951c,

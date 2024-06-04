@@ -3,9 +3,9 @@ using UnityEngine;
 public class MachineSelectionHandler : MonoBehaviour
 {
     [SerializeField]
-    private PointInputHandler _inputHandler;
+    private PointInputHandler pointInputHandler;
     [SerializeField]
-    private Tag _freePlatfromTag;
+    private Tag freePlatfromTag;
 
     [SerializeField]
     private RectTransform _instantiatedTooltip;
@@ -14,12 +14,12 @@ public class MachineSelectionHandler : MonoBehaviour
 
     private void OnEnable()
     {
-        _inputHandler.OnSelect += OnSelect;
+        pointInputHandler.OnSelect += OnSelect;
     }
 
     private void OnDisable()
     {
-        _inputHandler.OnSelect -= OnSelect;
+        pointInputHandler.OnSelect -= OnSelect;
     }
 
     public void Upgrade()
@@ -31,7 +31,7 @@ public class MachineSelectionHandler : MonoBehaviour
 
     public void Sell()
     {
-        _selectedMachine.Platform.tag = _freePlatfromTag;
+        _selectedMachine.Platform.tag = freePlatfromTag;
         _selectedMachine.Platform.SetActive(true);
         Destroy(_selectedMachine.gameObject);
         _instantiatedTooltip.gameObject.SetActive(false);
