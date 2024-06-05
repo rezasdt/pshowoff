@@ -8,8 +8,6 @@ public class TooltipUIController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI cost;
     [SerializeField] private TextMeshProUGUI earn;
     [SerializeField] private TextMeshProUGUI resale;
-    [SerializeField] private RectTransform repairPanel;
-    [SerializeField] private TextMeshProUGUI repair;
     [SerializeField] private RectTransform repairButtonPanel;
     [SerializeField] private RectTransform upgradeButtonPanel;
 
@@ -28,13 +26,10 @@ public class TooltipUIController : MonoBehaviour
         
         if (pMachineController is ImprovedMachineController { IsHealthy: false } improvedMachineController)
         {
-            repair.text = $"{improvedMachineController.ResaleValue.ToString()}$";
-            repairPanel.gameObject.SetActive(true);
             repairButtonPanel.gameObject.SetActive(true);
         }
         else
         {
-            repairPanel.gameObject.SetActive(false);
             repairButtonPanel.gameObject.SetActive(false);
         }
         
