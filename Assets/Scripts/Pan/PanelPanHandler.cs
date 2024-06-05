@@ -28,9 +28,9 @@ public class UIPanelPanHandler : MonoBehaviour
         _playerActions.Pan.performed -= OnPan;
     }
 
-    private void OnPan(InputAction.CallbackContext context)
+    private void OnPan(InputAction.CallbackContext pContext)
     {
-        Vector2 delta = context.ReadValue<Vector2>();
+        Vector2 delta = pContext.ReadValue<Vector2>();
         _panel.anchoredPosition += delta * _panSpeed * Time.deltaTime;
     }
 }

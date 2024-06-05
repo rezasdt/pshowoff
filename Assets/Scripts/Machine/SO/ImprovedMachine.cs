@@ -30,11 +30,11 @@ public class ImprovedMachine : MachineBase
         int totalValue = Cost;
         MachineBase current = Downgrade;
 
-        do
+        while (current is ImprovedMachine improvedMachine)
         {
-            totalValue += current.Cost;
-            current = ((ImprovedMachine)current).Downgrade;
-        } while (current is ImprovedMachine);
+            totalValue += improvedMachine.Cost;
+            current = improvedMachine.Downgrade;
+        }
 
         totalValue += current.Cost;
 
