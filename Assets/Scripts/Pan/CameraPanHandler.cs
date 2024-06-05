@@ -1,9 +1,10 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class CameraPanHandler : MonoBehaviour
 {
-    [SerializeField] private float _panSpeed = 1f;
+    [SerializeField] private float panSpeed = 0.01f;
 
     private PlayerControls _playerControls;
     private PlayerControls.PlayerActions _playerActions;
@@ -29,7 +30,7 @@ public class CameraPanHandler : MonoBehaviour
     private void OnPan(InputAction.CallbackContext context)
     {
         Vector2 mouseDelta = context.ReadValue<Vector2>();
-        Vector3 pan = new Vector3(mouseDelta.x, 0f, mouseDelta.y) * _panSpeed * Time.deltaTime;
+        Vector3 pan = new Vector3(mouseDelta.x, 0f, mouseDelta.y) * panSpeed;
         transform.Translate(-pan, Space.World);
     }
 }

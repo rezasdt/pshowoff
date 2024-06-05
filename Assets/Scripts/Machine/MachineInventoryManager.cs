@@ -30,7 +30,7 @@ public class MachineInventoryManager : MonoBehaviour
 
     private void InitMachineButtons()
     {
-        for (int stageIndex = 0; stageIndex < _stageDatabase.Stages.Count; stageIndex++)
+        for (int stageIndex = 0; stageIndex < _stageDatabase.Stages.Length; stageIndex++)
         {
             Stage stage = _stageDatabase.Stages[stageIndex];
             List<MachineButtonUIController> machineButtons = new();

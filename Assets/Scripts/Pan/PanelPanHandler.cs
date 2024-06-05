@@ -1,9 +1,10 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class UIPanelPanHandler : MonoBehaviour
 {
-    [SerializeField] private float _panSpeed = 100f;
+    [SerializeField] private float panSpeed = 1f;
 
     private RectTransform _panel;
     private PlayerControls _playerControls;
@@ -31,6 +32,6 @@ public class UIPanelPanHandler : MonoBehaviour
     private void OnPan(InputAction.CallbackContext pContext)
     {
         Vector2 delta = pContext.ReadValue<Vector2>();
-        _panel.anchoredPosition += delta * _panSpeed * Time.deltaTime;
+        _panel.anchoredPosition += delta * panSpeed;
     }
 }

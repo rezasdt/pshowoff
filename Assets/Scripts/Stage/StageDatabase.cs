@@ -1,14 +1,14 @@
+using System;
 using UnityEngine;
-using System.Collections.Generic;
 
 [CreateAssetMenu]
 public class StageDatabase : ScriptableObject
 {
     [field: SerializeField]
-    public List<Stage> Stages { get; private set; } = new();
+    public Stage[] Stages { get; private set; } = Array.Empty<Stage>();
 }
 
-[System.Serializable]
+[Serializable]
 public class Stage
 {
     [field: SerializeField]
@@ -17,7 +17,7 @@ public class Stage
     [field: SerializeField]
     public int RequiredThreshold { get; private set; }
     [field: SerializeField]
-    public List<StarterMachine> StarterMachines { get; private set; } = new();
+    public StarterMachine[] StarterMachines { get; private set; } = Array.Empty<StarterMachine>();
     [field: SerializeField]
-    public List<Challenge> Challenges { get; private set; } = new();
+    public Challenge[] Challenges { get; private set; } = Array.Empty<Challenge>();
 }
