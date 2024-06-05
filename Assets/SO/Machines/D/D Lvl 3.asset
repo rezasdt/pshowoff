@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92f24540c71a07a4aa16c7fd40e679ba, type: 3}
+  m_Name: D Lvl 3
+  m_EditorClassIdentifier: 
+  <Cost>k__BackingField: 800
+  <EarnAmount>k__BackingField: 75
+  <EarnIntervalSec>k__BackingField: 8
+  <Prefab>k__BackingField: {fileID: 1550727104883827220, guid: 0e9859511afb511468013085ae21c682,
+    type: 3}
+  <Upgrade>k__BackingField: {fileID: 11400000, guid: 5560fab1ca5309842a3a79ed0de99305,
+    type: 2}
+  <HealthySpawnChance>k__BackingField: 85
+  <Downgrade>k__BackingField: {fileID: 11400000, guid: 633ac9fd52171a340a0ea04249605f2e,
+    type: 2}

@@ -23,26 +23,28 @@ MonoBehaviour:
   - <Name>k__BackingField: Growth
     <RequiredThreshold>k__BackingField: 2500
     <StarterMachines>k__BackingField:
-    - {fileID: 11400000, guid: 67852f5d426be7d439cd16f77c56d3c8, type: 2}
+    - {fileID: 11400000, guid: 0460a523e6efe6d4d82689af38f414a5, type: 2}
     <Challenges>k__BackingField:
     - {fileID: 11400000, guid: 2200d80a3e98a8e428a1ec90457fc9e9, type: 2}
     - {fileID: 11400000, guid: 2c8f1e38040588a42959ddb7dae70456, type: 2}
   - <Name>k__BackingField: Expansion
     <RequiredThreshold>k__BackingField: 6500
     <StarterMachines>k__BackingField:
-    - {fileID: 11400000, guid: 9ccef17b946f94841a220534e625ddf3, type: 2}
+    - {fileID: 11400000, guid: f056bf3239766ad409e21094b113fa99, type: 2}
     <Challenges>k__BackingField:
     - {fileID: 11400000, guid: 4bd365c6fe17f2f4fb3c2aedd895ec4f, type: 2}
     - {fileID: 11400000, guid: 76f873e03365b4d44acfbcea2b1f125d, type: 2}
   - <Name>k__BackingField: Maturity
     <RequiredThreshold>k__BackingField: 10000
-    <StarterMachines>k__BackingField: []
+    <StarterMachines>k__BackingField:
+    - {fileID: 11400000, guid: 6231c52038e55584daba1ab36a0249cd, type: 2}
     <Challenges>k__BackingField:
     - {fileID: 11400000, guid: 204a7f107ff7c5f4f8795c88b7faba2b, type: 2}
     - {fileID: 11400000, guid: a8ca5218350f173448d706a636fece2d, type: 2}
   - <Name>k__BackingField: Unicorn
     <RequiredThreshold>k__BackingField: 20000
-    <StarterMachines>k__BackingField: []
+    <StarterMachines>k__BackingField:
+    - {fileID: 11400000, guid: 3f7bbc2f1774359488f687a0a33692d6, type: 2}
     <Challenges>k__BackingField:
     - {fileID: 11400000, guid: 861cd081c63c59744bb504d81f341485, type: 2}
     - {fileID: 11400000, guid: 5469c2eb3d03b1946a9e6b424abd99c0, type: 2}
