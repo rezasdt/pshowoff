@@ -17,6 +17,7 @@ public class PointInputHandler : MonoBehaviour
     public event System.Action<GameObject, Vector2> OnSelect = delegate { };
     public event System.Action<GameObject> OnCreate = delegate { };
     public event System.Action<GameObject> OnMachineHover = delegate { };
+    public event System.Action OnClickAway = delegate { };
 
     private PlayerControls _playerControls;
     private PlayerControls.PlayerActions _playerActions;
@@ -75,11 +76,14 @@ public class PointInputHandler : MonoBehaviour
         if (Physics.Raycast(ray, out hit, RaycastDistance, _machinesLayer))
         {
             OnSelect.Invoke(hit.collider.gameObject, point);
-            return;
         }
-        if (Physics.Raycast(ray, out hit, RaycastDistance, _platfromsLayer))
+        else if (Physics.Raycast(ray, out hit, RaycastDistance, _platfromsLayer))
         {
             OnCreate.Invoke(hit.collider.gameObject);
+        }
+        else
+        {
+            OnClickAway.Invoke();
         }
     }
 

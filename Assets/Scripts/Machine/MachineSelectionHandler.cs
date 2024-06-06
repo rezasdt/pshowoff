@@ -25,13 +25,16 @@ public class MachineSelectionHandler : MonoBehaviour
     {
         pointInputHandler.OnSelect += OnSelect;
         pointInputHandler.OnMachineHover += OnMachineHover;
+        pointInputHandler.OnClickAway += HideTooltips;
         _playerActions.Enable();
         _playerActions.Pan.started += OnPan;
     }
+
     private void OnDisable()
     {
         pointInputHandler.OnSelect -= OnSelect;
         pointInputHandler.OnMachineHover -= OnMachineHover;
+        pointInputHandler.OnClickAway -= HideTooltips;
         _playerActions.Disable();
         _playerActions.Pan.started -= OnPan;
     }
