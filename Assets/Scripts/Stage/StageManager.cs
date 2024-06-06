@@ -26,6 +26,7 @@ public class StageManager : MonoBehaviour
 
     private void CacheStageThresholds()
     {
+        _stageThresholds.Add(0);
         foreach (var stage in _stageDatabase.Stages)
         {
             _stageThresholds.Add(stage.RequiredThreshold);
@@ -37,8 +38,7 @@ public class StageManager : MonoBehaviour
         int currentStage = -1;
         foreach (int threshold in _stageThresholds)
         {
-            if (_moneyVariable.Value < threshold) break;
-            currentStage++;
+            if (_moneyVariable.Value > threshold) currentStage++;
         }
         return currentStage;
     }

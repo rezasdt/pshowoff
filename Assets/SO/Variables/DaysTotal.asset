@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6efe9270526bd3f4aacf344f3cc7127c, type: 3}
   m_Name: DaysTotal
   m_EditorClassIdentifier: 
-  _initialValue: 0
-  <Value>k__BackingField: 0
+  _initialValue: 30
+  <Value>k__BackingField: 30

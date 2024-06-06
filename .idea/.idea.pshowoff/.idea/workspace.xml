@@ -5,13 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c78d92ad-e2ac-44ee-8991-e91fea9bacd6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/TimerManager.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/TimerManager.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/UIManager.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/UIManager.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/TimerManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/TimerManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UIManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UIManager.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.pshowoff/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pshowoff/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/TooltipCanvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/TooltipCanvas.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SO/Variables/DayLengthSec.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SO/Variables/DayLengthSec.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SO/Variables/DaysTotal.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SO/Variables/DaysTotal.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/SO/Variables/Money.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SO/Variables/Money.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SO/Variables/TimerSec.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SO/Variables/TimerSec.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Machine/MachineSelectionHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Machine/MachineSelectionHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Machine/SO/ImprovedMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Machine/SO/ImprovedMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Leaderboard.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Leaderboard.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Machine/UI/TooltipUIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Machine/UI/TooltipUIController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pan/PanelPanHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pan/PanelPanHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Stage/StageManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Stage/StageManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +32,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/TimerManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -109,6 +124,7 @@
       <workItem from="1717491946605" duration="2145000" />
       <workItem from="1717557799405" duration="7196000" />
       <workItem from="1717573629149" duration="3880000" />
+      <workItem from="1717673884486" duration="4082000" />
     </task>
     <servers />
   </component>

@@ -8,6 +8,8 @@ public class TooltipUIController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI cost;
     [SerializeField] private TextMeshProUGUI earn;
     [SerializeField] private TextMeshProUGUI resale;
+    [SerializeField] private TextMeshProUGUI repair;
+    [SerializeField] private RectTransform repairPanel;
     [SerializeField] private RectTransform repairButtonPanel;
     [SerializeField] private RectTransform upgradeButtonPanel;
 
@@ -19,19 +21,14 @@ public class TooltipUIController : MonoBehaviour
 
     public void Init(MachineController pMachineController)
     {
+        repairPanel.gameObject.SetActive(false);
+        repairButtonPanel.gameObject.SetActive(false);
+        upgradeButtonPanel.gameObject.SetActive(false);
+        
         title.text = pMachineController.Machine.name;
         cost.text = $"{pMachineController.Machine.Cost.ToString()}$";
         earn.text = $"{pMachineController.Machine.EarnAmount.ToString()}$ / {pMachineController.Machine.EarnIntervalSec.ToString()}s";
         resale.text = $"{pMachineController.ResaleValue.ToString()}$";
-        
-        if (pMachineController is ImprovedMachineController { IsHealthy: false } improvedMachineController)
-        {
-            repairButtonPanel.gameObject.SetActive(true);
-        }
-        else
-        {
-            repairButtonPanel.gameObject.SetActive(false);
-        }
         
         if (pMachineController.Machine.Upgrade is { } improvedMachine)
         {
@@ -41,8 +38,11 @@ public class TooltipUIController : MonoBehaviour
             upgradeEarn.text = $"{improvedMachine.EarnAmount.ToString()}$ / {improvedMachine.EarnIntervalSec.ToString()}s";
             upgradeButtonPanel.gameObject.SetActive(true);
         }
-        else
+        if (pMachineController is ImprovedMachineController { IsHealthy: false } improvedMachineController)
         {
+            repair.text = $"{improvedMachineController.RepairCost.ToString()}$";
+            repairPanel.gameObject.SetActive(true);
+            repairButtonPanel.gameObject.SetActive(true);
             upgradeButtonPanel.gameObject.SetActive(false);
         }
     }
