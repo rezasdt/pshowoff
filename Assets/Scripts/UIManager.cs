@@ -40,7 +40,7 @@ public class UIManager : MonoBehaviour
         while (true)
         {
             daysText.text = $"{Mathf.CeilToInt((float)timerVariable.Value / dayLengthSecVariable.Value).ToString()} / {daysTotalVariable.Value.ToString()}";
-            moneyText.text = $"{moneyVariable.Value.ToString()}$";
+            moneyText.text = $"{moneyVariable.Value.ToString("N0")}$";
             thresholdSlider.value = moneyVariable.Value;
             yield return new WaitForSeconds(0.1f);
         }
