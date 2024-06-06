@@ -1,8 +1,8 @@
 using System;
 using System.Collections;
+using System.Text;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -19,6 +19,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Int32Variable daysTotalVariable;
     [SerializeField] private Int32Variable dayLengthSecVariable;
     [SerializeField] private Int64Variable timerVariable;
+
+    private readonly StringBuilder _sb = new();
 
     private void Start()
     {
@@ -39,8 +41,17 @@ public class UIManager : MonoBehaviour
     {
         while (true)
         {
-            daysText.text = $"{Mathf.CeilToInt((float)timerVariable.Value / dayLengthSecVariable.Value).ToString()} / {daysTotalVariable.Value.ToString()}";
-            moneyText.text = $"{moneyVariable.Value.ToString("N0")}$";
+            _sb.Clear();
+            _sb.Append(Mathf.CeilToInt((float)timerVariable.Value / dayLengthSecVariable.Value).ToString());
+            _sb.Append(" / ");
+            _sb.Append(daysTotalVariable.Value.ToString());
+            daysText.text = _sb.ToString();
+
+            _sb.Clear();
+            _sb.Append(moneyVariable.Value.ToString("N0"));
+            _sb.Append("$");
+            moneyText.text = _sb.ToString();
+
             thresholdSlider.value = moneyVariable.Value;
             yield return new WaitForSeconds(0.1f);
         }

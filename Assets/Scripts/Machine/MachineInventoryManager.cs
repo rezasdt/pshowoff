@@ -22,10 +22,9 @@ public class MachineInventoryManager : MonoBehaviour
     {
         _stageManager.OnStageChange -= UpdateButtonsState;
     }
-    private void Start()
+    private void Awake()
     {
         InitMachineButtons();
-        UpdateButtonsState(_stageManager.GetStage());
     }
 
     private void InitMachineButtons()
