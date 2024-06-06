@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Money
   m_EditorClassIdentifier: 
   _initialValue: 500
-  <Value>k__BackingField: 500
+  <Value>k__BackingField: 200

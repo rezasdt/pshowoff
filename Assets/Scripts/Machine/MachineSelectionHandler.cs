@@ -5,7 +5,6 @@ public class MachineSelectionHandler : MonoBehaviour
 {
     [SerializeField] private PointInputHandler pointInputHandler;
     [SerializeField] private Tag freePlatformTag;
-
     [SerializeField] private TooltipUIController tooltipUIController;
     [SerializeField] private RectTransform tooltip;
     [SerializeField] private RectTransform upgradeTooltip;
@@ -15,6 +14,7 @@ public class MachineSelectionHandler : MonoBehaviour
     private MachineController _selectedMachine;
     private PlayerControls _playerControls;
     private PlayerControls.PlayerActions _playerActions;
+    private GameObject _lastHoveredMachine;
 
     private void Awake()
     {
@@ -24,12 +24,14 @@ public class MachineSelectionHandler : MonoBehaviour
     private void OnEnable()
     {
         pointInputHandler.OnSelect += OnSelect;
+        pointInputHandler.OnMachineHover += OnMachineHover;
         _playerActions.Enable();
         _playerActions.Pan.started += OnPan;
     }
     private void OnDisable()
     {
         pointInputHandler.OnSelect -= OnSelect;
+        pointInputHandler.OnMachineHover -= OnMachineHover;
         _playerActions.Disable();
         _playerActions.Pan.started -= OnPan;
     }
@@ -37,6 +39,20 @@ public class MachineSelectionHandler : MonoBehaviour
     private void OnPan(InputAction.CallbackContext pContext)
     {
         HideTooltips();
+    }
+
+    private void OnMachineHover(GameObject pGameObject)
+    {
+        if (_lastHoveredMachine != null)
+            Destroy(_lastHoveredMachine.GetComponent<Outline>());
+        
+        if (pGameObject == null) return;
+        _lastHoveredMachine = pGameObject;
+        var outline = _lastHoveredMachine.AddComponent<Outline>();
+
+        outline.OutlineMode = Outline.Mode.OutlineAll;
+        outline.OutlineColor = Color.yellow;
+        outline.OutlineWidth = 10f;
     }
 
     public void ShowUpgradeTooltip()
