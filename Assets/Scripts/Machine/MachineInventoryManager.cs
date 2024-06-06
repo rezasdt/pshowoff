@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,6 +26,12 @@ public class MachineInventoryManager : MonoBehaviour
     private void Awake()
     {
         InitMachineButtons();
+    }
+
+    private void Start()
+    {
+        UpdateButtonsState(_stageManager.GetStage());
+        HideLockedButtons();
     }
 
     private void InitMachineButtons()
@@ -58,6 +65,39 @@ public class MachineInventoryManager : MonoBehaviour
                     button.Unlock();
                 else
                     button.Lock();
+            }
+        }
+        
+        ShowUnlockedButtons();
+    }
+
+    private void ShowUnlockedButtons()
+    {
+        foreach (var stageEntry in _machineButtonsByStage)
+        {
+            foreach (var button in stageEntry.Value)
+            {
+                if (!button.IsLocked) button.gameObject.SetActive(true);
+            }
+        }
+    }
+    public void ShowLockedButtons()
+    {
+        foreach (var stageEntry in _machineButtonsByStage)
+        {
+            foreach (var button in stageEntry.Value)
+            {
+                if (button.IsLocked) button.gameObject.SetActive(true);
+            }
+        }
+    }
+    public void HideLockedButtons()
+    {
+        foreach (var stageEntry in _machineButtonsByStage)
+        {
+            foreach (var button in stageEntry.Value)
+            {
+                if (button.IsLocked) button.gameObject.SetActive(false);
             }
         }
     }

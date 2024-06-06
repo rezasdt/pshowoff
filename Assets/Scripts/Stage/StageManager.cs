@@ -33,7 +33,7 @@ public class StageManager : MonoBehaviour
         }
     }
 
-    private int GetStage()
+    public int GetStage()
     {
         int currentStage = -1;
         foreach (int threshold in _stageThresholds)

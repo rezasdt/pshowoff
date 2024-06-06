@@ -12,7 +12,7 @@ public class MachineButtonUIController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _stage;
     private Button _currentButton;
     private StarterMachine _starterMachine;
-
+    public bool IsLocked { get; private set; }
     private void Awake()
     {
         _currentButton = GetComponent<Button>();
@@ -48,11 +48,13 @@ public class MachineButtonUIController : MonoBehaviour
     {
         _currentButton.interactable = false;
         _lockPanel.SetActive(true);
+        IsLocked = true;
     }
 
     public void Unlock()
     {
         _currentButton.interactable = true;
         _lockPanel.SetActive(false);
+        IsLocked = false;
     }
 }
