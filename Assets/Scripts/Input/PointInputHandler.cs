@@ -42,7 +42,8 @@ public class PointInputHandler : MonoBehaviour
     
     private void OnMove(InputAction.CallbackContext pContext)
     {
-        if (_raycastThrottle++ % 4 > 0) return;
+        if (_raycastThrottle++ % 5 > 0) return;
+        if (IsPointerOverUI()) return;
         
         var point = pContext.ReadValue<Vector2>();
         var ray = _camera.ScreenPointToRay(point);
