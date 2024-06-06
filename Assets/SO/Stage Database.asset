@@ -14,35 +14,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Stages>k__BackingField:
   - <Name>k__BackingField: Startup
-    <RequiredThreshold>k__BackingField: 500
+    <MaxThreshold>k__BackingField: 500
     <StarterMachines>k__BackingField:
     - {fileID: 11400000, guid: 20628924cddc5654e845d965043c067c, type: 2}
     <Challenges>k__BackingField:
     - {fileID: 11400000, guid: 67c73748fe9aff445a71941e34d95ce1, type: 2}
     - {fileID: 11400000, guid: 9161c19c9feca0d4a8e35f9f03495727, type: 2}
   - <Name>k__BackingField: Growth
-    <RequiredThreshold>k__BackingField: 2500
+    <MaxThreshold>k__BackingField: 2500
     <StarterMachines>k__BackingField:
     - {fileID: 11400000, guid: 0460a523e6efe6d4d82689af38f414a5, type: 2}
     <Challenges>k__BackingField:
     - {fileID: 11400000, guid: 2200d80a3e98a8e428a1ec90457fc9e9, type: 2}
     - {fileID: 11400000, guid: 2c8f1e38040588a42959ddb7dae70456, type: 2}
   - <Name>k__BackingField: Expansion
-    <RequiredThreshold>k__BackingField: 6500
+    <MaxThreshold>k__BackingField: 6500
     <StarterMachines>k__BackingField:
     - {fileID: 11400000, guid: f056bf3239766ad409e21094b113fa99, type: 2}
     <Challenges>k__BackingField:
     - {fileID: 11400000, guid: 4bd365c6fe17f2f4fb3c2aedd895ec4f, type: 2}
     - {fileID: 11400000, guid: 76f873e03365b4d44acfbcea2b1f125d, type: 2}
   - <Name>k__BackingField: Maturity
-    <RequiredThreshold>k__BackingField: 10000
+    <MaxThreshold>k__BackingField: 10000
     <StarterMachines>k__BackingField:
     - {fileID: 11400000, guid: 6231c52038e55584daba1ab36a0249cd, type: 2}
     <Challenges>k__BackingField:
     - {fileID: 11400000, guid: 204a7f107ff7c5f4f8795c88b7faba2b, type: 2}
     - {fileID: 11400000, guid: a8ca5218350f173448d706a636fece2d, type: 2}
   - <Name>k__BackingField: Unicorn
-    <RequiredThreshold>k__BackingField: 20000
+    <MaxThreshold>k__BackingField: 20000
     <StarterMachines>k__BackingField:
     - {fileID: 11400000, guid: 3f7bbc2f1774359488f687a0a33692d6, type: 2}
     <Challenges>k__BackingField:

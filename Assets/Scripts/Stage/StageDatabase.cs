@@ -15,7 +15,7 @@ public class Stage
     public string Name { get; private set; }
     [field: Min(0)]
     [field: SerializeField]
-    public int RequiredThreshold { get; private set; }
+    public int MaxThreshold { get; private set; }
     [field: SerializeField]
     public StarterMachine[] StarterMachines { get; private set; } = Array.Empty<StarterMachine>();
     [field: SerializeField]

@@ -60,7 +60,7 @@ public class UIManager : MonoBehaviour
         if (pNewStage >= stageDatabase.Stages.Length) return;
         
         stageNameText.text = stageDatabase.Stages[pNewStage].Name;
-        thresholdSlider.minValue = pNewStage == 0 ? 0 : stageDatabase.Stages[pNewStage - 1].RequiredThreshold;
-        thresholdSlider.maxValue = stageDatabase.Stages[pNewStage].RequiredThreshold;
+        thresholdSlider.minValue = pNewStage == 0 ? 0 : stageDatabase.Stages[pNewStage - 1].MaxThreshold;
+        thresholdSlider.maxValue = stageDatabase.Stages[pNewStage].MaxThreshold;
     }
 }

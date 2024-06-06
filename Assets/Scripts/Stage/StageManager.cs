@@ -29,7 +29,7 @@ public class StageManager : MonoBehaviour
         _stageThresholds.Add(0);
         foreach (var stage in _stageDatabase.Stages)
         {
-            _stageThresholds.Add(stage.RequiredThreshold);
+            _stageThresholds.Add(stage.MaxThreshold);
         }
     }
 
