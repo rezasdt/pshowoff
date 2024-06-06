@@ -56,7 +56,8 @@ public class MachineCreationHandler : MonoBehaviour
     private void OnCreate(GameObject pPlatfrom)
     {
         if (!pPlatfrom.CompareTag(_freePlatfromTag)) return;
-
+        if (_moneyVariable.Value < _selectedMachine.Cost) return;
+        
         var newMachine = Instantiate(_selectedMachine.Prefab, pPlatfrom.transform.position, Quaternion.identity)
             .GetComponent<MachineController>();
         newMachine.Platform = pPlatfrom;
