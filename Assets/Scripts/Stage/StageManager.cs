@@ -40,7 +40,7 @@ public class StageManager : MonoBehaviour
         {
             if (_moneyVariable.Value > threshold) currentStage++;
         }
-        return currentStage;
+        return Mathf.Min(currentStage, _stageThresholds.Count - 2);
     }
 
     private IEnumerator CheckStageCoroutine()
