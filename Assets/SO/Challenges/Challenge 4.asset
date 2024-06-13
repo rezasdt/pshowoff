@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Title>k__BackingField: Invest in a Market Research Study
   <Description>k__BackingField: Conduct a market research study to uncover new opportunities.
-  <Cost>k__BackingField: 3000
-  <SuccessChance>k__BackingField: 65
-  <RewardAmount>k__BackingField: 12000
+  <Cost>k__BackingField: 1250
+  <SuccessChance>k__BackingField: 60
+  <RewardAmount>k__BackingField: 3000
   <SuccessMessage>k__BackingField: 'The market research study reveals a hidden market
     opportunity. You quickly pivot and start selling to this new audience, boosting
     your sales.

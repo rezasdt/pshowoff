@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Title>k__BackingField: Host a Product Launch Event
   <Description>k__BackingField: Organize a grand event to unveil your new product.
-  <Cost>k__BackingField: 3500
-  <SuccessChance>k__BackingField: 65
-  <RewardAmount>k__BackingField: 10000
+  <Cost>k__BackingField: 3000
+  <SuccessChance>k__BackingField: 35
+  <RewardAmount>k__BackingField: 15000
   <SuccessMessage>k__BackingField: 'Your product launch event is a hit. The venue
     is packed, and pre-orders exceed expectations.
 

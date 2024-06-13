@@ -15,9 +15,9 @@ MonoBehaviour:
   <Title>k__BackingField: Upgrade Factory Technology
   <Description>k__BackingField: Invest in new technology to improve your factory's
     efficiency.
-  <Cost>k__BackingField: 7000
-  <SuccessChance>k__BackingField: 50
-  <RewardAmount>k__BackingField: 20000
+  <Cost>k__BackingField: 4500
+  <SuccessChance>k__BackingField: 75
+  <RewardAmount>k__BackingField: 12000
   <SuccessMessage>k__BackingField: 'Your new factory tech doubles production speed
     and reduces defects. Your engineers celebrate with a break.
 

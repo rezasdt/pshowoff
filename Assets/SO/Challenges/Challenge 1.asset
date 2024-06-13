@@ -15,9 +15,9 @@ MonoBehaviour:
   <Title>k__BackingField: 'Join a Networking Event  '
   <Description>k__BackingField: Attend a local business networking event to make
     valuable connections.
-  <Cost>k__BackingField: 1000
-  <SuccessChance>k__BackingField: 80
-  <RewardAmount>k__BackingField: 3000
+  <Cost>k__BackingField: 150
+  <SuccessChance>k__BackingField: 85
+  <RewardAmount>k__BackingField: 400
   <SuccessMessage>k__BackingField: 'You go to a local business networking event,
     looking sharp and ready to chat. You go into a conversation with a bunch of people
     and hit it off with a potential partner.

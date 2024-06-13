@@ -15,9 +15,9 @@ MonoBehaviour:
   <Title>k__BackingField: Develop a New Marketing Campaign
   <Description>k__BackingField: Launch a new marketing campaign to boost your product's
     visibility.
-  <Cost>k__BackingField: 2500
+  <Cost>k__BackingField: 1400
   <SuccessChance>k__BackingField: 70
-  <RewardAmount>k__BackingField: 8000
+  <RewardAmount>k__BackingField: 4000
   <SuccessMessage>k__BackingField: 'Your new marketing campaign goes viral. Everyone
     loves it, and your sales skyrocket.
 

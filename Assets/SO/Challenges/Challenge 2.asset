@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Title>k__BackingField: Collaboration Meeting with a Tech Guru
   <Description>k__BackingField: Pitch your idea to a tech guru and gain their support.
-  <Cost>k__BackingField: 1500
-  <SuccessChance>k__BackingField: 60
-  <RewardAmount>k__BackingField: 10000
+  <Cost>k__BackingField: 250
+  <SuccessChance>k__BackingField: 65
+  <RewardAmount>k__BackingField: 850
   <SuccessMessage>k__BackingField: "You meet a tech guru at a caf\xE9 and give a
     great pitch. The guru loves your idea and agrees to collaborate.\nResult: You
     gain $10,000. You're now partners with a tech superstar!"

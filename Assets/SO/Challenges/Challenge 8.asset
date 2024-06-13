@@ -15,9 +15,9 @@ MonoBehaviour:
   <Title>k__BackingField: Partner with a Celebrity Endorser
   <Description>k__BackingField: Get a celebrity to endorse your product for instant
     fame.
-  <Cost>k__BackingField: 6000
-  <SuccessChance>k__BackingField: 45
-  <RewardAmount>k__BackingField: 30000
+  <Cost>k__BackingField: 2700
+  <SuccessChance>k__BackingField: 70
+  <RewardAmount>k__BackingField: 6500
   <SuccessMessage>k__BackingField: 'The celebrity endorser tweets about your product,
     and it goes viral. Your sales explode.
 

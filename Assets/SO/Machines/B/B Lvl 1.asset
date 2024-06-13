@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Cost>k__BackingField: 600
   <EarnAmount>k__BackingField: 20
-  <EarnIntervalSec>k__BackingField: 10
+  <EarnIntervalSec>k__BackingField: 5
   <Prefab>k__BackingField: {fileID: 8085087624814247677, guid: 0b4b7ac346d34a748a6dacdc532a4cab,
     type: 3}
   <Upgrade>k__BackingField: {fileID: 11400000, guid: 114241b46f99c6745a464d66dfc38b2b,

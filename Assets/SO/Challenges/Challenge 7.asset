@@ -15,9 +15,9 @@ MonoBehaviour:
   <Title>k__BackingField: Attend an International Trade Show
   <Description>k__BackingField: Showcase your products at an international trade
     show to attract global buyers.
-  <Cost>k__BackingField: 4000
-  <SuccessChance>k__BackingField: 55
-  <RewardAmount>k__BackingField: 15000
+  <Cost>k__BackingField: 1900
+  <SuccessChance>k__BackingField: 40
+  <RewardAmount>k__BackingField: 7500
   <SuccessMessage>k__BackingField: 'Your booth at the international trade show attracts
     lots of attention. You secure deals with several international distributors.
 

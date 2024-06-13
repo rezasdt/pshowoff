@@ -15,9 +15,9 @@ MonoBehaviour:
   <Title>k__BackingField: Sponsor a Tech Conference
   <Description>k__BackingField: Sponsor a major tech conference to boost your brand's
     visibility.
-  <Cost>k__BackingField: 2000
-  <SuccessChance>k__BackingField: 75
-  <RewardAmount>k__BackingField: 7000
+  <Cost>k__BackingField: 750
+  <SuccessChance>k__BackingField: 70
+  <RewardAmount>k__BackingField: 1500
   <SuccessMessage>k__BackingField: 'Your sponsorship at the tech conference is a
     hit. Everyone sees your brand and talks about it. You make a ton of new contacts.
 

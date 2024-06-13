@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c259c69ce64c2e244b2e4bbae5648406, type: 3}
   m_Name: E Lvl 1
   m_EditorClassIdentifier: 
-  <Cost>k__BackingField: 2500
-  <EarnAmount>k__BackingField: 10
-  <EarnIntervalSec>k__BackingField: 1
+  <Cost>k__BackingField: 2700
+  <EarnAmount>k__BackingField: 70
+  <EarnIntervalSec>k__BackingField: 5
   <Prefab>k__BackingField: {fileID: 8085087624814247677, guid: cd5743b3c6957be4692983a5f44774fc,
     type: 3}
   <Upgrade>k__BackingField: {fileID: 11400000, guid: 26d237351aec0964f821f9681f9c33d8,

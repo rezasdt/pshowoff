@@ -15,9 +15,9 @@ MonoBehaviour:
   <Title>k__BackingField: Pitch to a Venture Capitalist
   <Description>k__BackingField: Present your business idea to a venture capitalist
     for funding.
-  <Cost>k__BackingField: 5000
-  <SuccessChance>k__BackingField: 50
-  <RewardAmount>k__BackingField: 25000
+  <Cost>k__BackingField: 1800
+  <SuccessChance>k__BackingField: 60
+  <RewardAmount>k__BackingField: 4700
   <SuccessMessage>k__BackingField: 'Your pitch to the venture capitalist is perfect.
     They''re so impressed they give you double the funding you asked for.
 
