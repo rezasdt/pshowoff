@@ -1,6 +1,6 @@
-using System;
 using System.Collections;
 using System.Text;
+using PrimeTween;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -29,12 +29,12 @@ public class UIManager : MonoBehaviour
 
     private void OnEnable()
     {
-        stageManager.OnStageChange += OnStageChange;
+        stageManager.OnStageChange += UpdateStageTitle;
     }
 
     private void OnDisable()
     {
-        stageManager.OnStageChange -= OnStageChange;
+        stageManager.OnStageChange -= UpdateStageTitle;
     }
 
     private IEnumerator UpdateUICoroutine()
@@ -46,18 +46,12 @@ public class UIManager : MonoBehaviour
             _sb.Append(" / ");
             _sb.Append(daysTotalVariable.Value.ToString());
             daysText.text = _sb.ToString();
-
-            _sb.Clear();
-            _sb.Append(moneyVariable.Value.ToString("N0"));
-            _sb.Append("$");
-            moneyText.text = _sb.ToString();
-
-            thresholdSlider.value = moneyVariable.Value;
+            UpdateMoneyText();
             yield return new WaitForSeconds(0.1f);
         }
     }
 
-    private void OnStageChange(int pNewStage)
+    private void UpdateStageTitle(int pNewStage)
     {
         if (pNewStage == -1)
         {
@@ -73,5 +67,20 @@ public class UIManager : MonoBehaviour
         stageNameText.text = stageDatabase.Stages[pNewStage].Name;
         thresholdSlider.minValue = pNewStage == 0 ? 0 : stageDatabase.Stages[pNewStage - 1].MaxThreshold;
         thresholdSlider.maxValue = stageDatabase.Stages[pNewStage].MaxThreshold;
+    }
+
+    public void OnEarn()
+    {
+        UpdateMoneyText();
+        Tween.ShakeLocalPosition(moneyText.gameObject.transform, strength: new Vector3(0, 10), duration: 1, frequency: 10);
+    }
+
+    private void UpdateMoneyText()
+    {
+        _sb.Clear();
+        _sb.Append(moneyVariable.Value.ToString("N0"));
+        _sb.Append("$");
+        moneyText.text = _sb.ToString();
+        thresholdSlider.value = moneyVariable.Value;
     }
 }

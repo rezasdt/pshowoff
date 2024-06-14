@@ -3,6 +3,7 @@ using UnityEngine.Pool;
 
 public class MachineEarnHandler : MonoBehaviour
 {
+    [SerializeField] private UIManager _uiManager;
     [SerializeField]
     private Int64Variable _moneyVariable;
     [SerializeField]
@@ -60,6 +61,7 @@ public class MachineEarnHandler : MonoBehaviour
     private void OnEarn(int pEarnAmount, Vector3 pMachinePosition)
     {
         _moneyVariable.Value += pEarnAmount;
+        _uiManager.OnEarn();
         var newIndicator = _pool.Get();
         newIndicator.Init(pEarnAmount, _camera.WorldToScreenPoint(pMachinePosition));
     }
