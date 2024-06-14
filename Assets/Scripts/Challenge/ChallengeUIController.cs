@@ -11,6 +11,7 @@ public class ChallengeUIController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI details;
     [Header("SO")]
     [SerializeField] private Int64Variable moneyVariable;
+    [SerializeField] private Int32Variable riskVariable;
 
     private Challenge _challenge;
     public void Init(Challenge pChallenge)
@@ -39,6 +40,7 @@ public class ChallengeUIController : MonoBehaviour
         if (moneyVariable.Value < _challenge.Cost) return;
         moneyVariable.Value -= _challenge.Cost;
         moneyVariable.Value += Random.Range(0, 100) < _challenge.SuccessChance ? _challenge.RewardAmount : 0;
+        riskVariable.Value += 100 - _challenge.SuccessChance;
         Destroy(gameObject);
     }
 

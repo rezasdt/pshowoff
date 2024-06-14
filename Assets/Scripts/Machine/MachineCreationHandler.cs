@@ -1,19 +1,15 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class MachineCreationHandler : MonoBehaviour
 {
-    [SerializeField]
-    private Tag _freePlatfromTag;
-    [SerializeField]
-    private Tag _reservedPlatfromTag;
-    [SerializeField]
-    private GameObject _platformsParent;
-    [SerializeField]
-    private PointInputHandler _inputHandler;
-    [SerializeField]
-    private Int64Variable _moneyVariable;
+    [SerializeField] private Tag freePlatformTag;
+    [SerializeField] private Tag reservedPlatformTag;
+    [SerializeField] private GameObject platformsParent;
+    [SerializeField] private PointInputHandler inputHandler;
+    [Header("SO")]
+    [SerializeField] private Int64Variable moneyVariable;
+    [SerializeField] private Int32Variable riskCapacityVariable;
 
     private MachineBase _selectedMachine;
     private PlayerControls _playerControls;
@@ -28,7 +24,7 @@ public class MachineCreationHandler : MonoBehaviour
     private void OnEnable()
     {
         MachineButtonUIController.OnMachineClicked += OnMachineClicked;
-        _inputHandler.OnCreate += OnCreate;
+        inputHandler.OnCreate += OnCreate;
         _playerActions.Enable();
         _playerActions.DiscardSelection.performed += OnDiscardSelection;
     }
@@ -36,7 +32,7 @@ public class MachineCreationHandler : MonoBehaviour
     private void OnDisable()
     {
         MachineButtonUIController.OnMachineClicked -= OnMachineClicked;
-        _inputHandler.OnCreate -= OnCreate;
+        inputHandler.OnCreate -= OnCreate;
         _playerActions.Disable();
         _playerActions.DiscardSelection.performed -= OnDiscardSelection;
     }
@@ -44,27 +40,30 @@ public class MachineCreationHandler : MonoBehaviour
     private void OnDiscardSelection(InputAction.CallbackContext pContext)
     {
         _selectedMachine = null;
-        _platformsParent.SetActive(false);
+        platformsParent.SetActive(false);
     }
 
     private void OnMachineClicked(MachineBase pMachine)
     {
         _selectedMachine = pMachine;
-        _platformsParent.SetActive(true);
+        platformsParent.SetActive(true);
     }
 
-    private void OnCreate(GameObject pPlatfrom)
+    private void OnCreate(GameObject pPlatform)
     {
-        if (!pPlatfrom.CompareTag(_freePlatfromTag)) return;
-        if (_moneyVariable.Value < _selectedMachine.Cost) return;
+        if (!pPlatform.CompareTag(freePlatformTag)) return;
+        if (moneyVariable.Value < _selectedMachine.Cost) return;
         
-        var newMachine = Instantiate(_selectedMachine.Prefab, pPlatfrom.transform.position, Quaternion.identity)
+        var newMachine = Instantiate(_selectedMachine.Prefab, pPlatform.transform.position, Quaternion.identity)
             .GetComponent<MachineController>();
-        newMachine.Platform = pPlatfrom;
-        pPlatfrom.tag = _reservedPlatfromTag;
-        pPlatfrom.gameObject.SetActive(false);
-        _moneyVariable.Value -= _selectedMachine.Cost;
+        newMachine.Platform = pPlatform;
+        pPlatform.tag = reservedPlatformTag;
+        pPlatform.gameObject.SetActive(false);
+        moneyVariable.Value -= _selectedMachine.Cost;
         _selectedMachine = null;
-        _platformsParent.SetActive(false);
+        platformsParent.SetActive(false);
+
+        if (newMachine.Machine.Upgrade == null) return;
+        riskCapacityVariable.Value += 100 - (newMachine.Machine.Upgrade).HealthySpawnChance;
     }
 }

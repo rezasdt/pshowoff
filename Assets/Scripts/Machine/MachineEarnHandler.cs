@@ -3,20 +3,18 @@ using UnityEngine.Pool;
 
 public class MachineEarnHandler : MonoBehaviour
 {
-    [SerializeField] private UIManager _uiManager;
-    [SerializeField]
-    private Int64Variable _moneyVariable;
-    [SerializeField]
-    private RectTransform _container;
-    [SerializeField]
-    private Camera _camera;
-    [SerializeField]
-    private EarnIndicatorUIController _indicatorPrefab;
+    [SerializeField] private UIManager uiManager;
+    [SerializeField] private RectTransform container;
+    [SerializeField] private EarnIndicatorUIController indicatorPrefab;
+    [SerializeField] private Camera _camera;
+    [Header("SO")]
+    [SerializeField] private Int64Variable moneyVariable;
 
     private ObjectPool<EarnIndicatorUIController> _pool;
 
     private void Awake()
     {
+        moneyVariable.Reset();
         _pool = new ObjectPool<EarnIndicatorUIController>(
             CreateIndicator,
             OnGetFromPool,
@@ -30,7 +28,7 @@ public class MachineEarnHandler : MonoBehaviour
 
     private EarnIndicatorUIController CreateIndicator()
     {
-        return Instantiate(_indicatorPrefab, _container);
+        return Instantiate(indicatorPrefab, container);
     }
 
     private void OnGetFromPool(EarnIndicatorUIController indicator)
@@ -60,8 +58,8 @@ public class MachineEarnHandler : MonoBehaviour
 
     private void OnEarn(int pEarnAmount, Vector3 pMachinePosition)
     {
-        _moneyVariable.Value += pEarnAmount;
-        _uiManager.OnEarn();
+        moneyVariable.Value += pEarnAmount;
+        uiManager.OnEarn();
         var newIndicator = _pool.Get();
         newIndicator.Init(pEarnAmount, _camera.WorldToScreenPoint(pMachinePosition));
     }

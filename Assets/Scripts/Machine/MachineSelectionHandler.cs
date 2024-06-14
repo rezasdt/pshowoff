@@ -8,8 +8,9 @@ public class MachineSelectionHandler : MonoBehaviour
     [SerializeField] private TooltipUIController tooltipUIController;
     [SerializeField] private RectTransform tooltip;
     [SerializeField] private RectTransform upgradeTooltip;
-
+    [Header("SO")]
     [SerializeField] private Int64Variable moneyVariable;
+    [SerializeField] private Int32Variable riskVariable;
     
     private MachineController _selectedMachine;
     private PlayerControls _playerControls;
@@ -95,6 +96,7 @@ public class MachineSelectionHandler : MonoBehaviour
         newMachineController.Platform = _selectedMachine.Platform;
         Destroy(_selectedMachine.gameObject);
         moneyVariable.Value -= _selectedMachine.Machine.Upgrade.Cost;
+        riskVariable.Value += 100 - _selectedMachine.Machine.Upgrade.HealthySpawnChance;
         HideTooltips();
     }
     

@@ -9,6 +9,7 @@ public class ChallengeManager : MonoBehaviour
     [SerializeField] private RectTransform challengeCanvas;
     [Header("SO")]
     [SerializeField] private StageDatabase stageDatabase;
+    [SerializeField] private Int32Variable riskCapacityVariable;
 
     private int _highestReachedStage = -1;
     private bool _isCoroutineRunning = false;
@@ -65,6 +66,7 @@ public class ChallengeManager : MonoBehaviour
             Challenge challenge = _challengeQueue.Dequeue();
             ChallengeUIController challengeUI = Instantiate(challengePrefab, challengeCanvas.transform);
             challengeUI.Init(challenge);
+            riskCapacityVariable.Value += 100 - challenge.SuccessChance;
         }
 
         _isCoroutineRunning = false;

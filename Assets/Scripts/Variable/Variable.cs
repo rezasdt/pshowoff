@@ -9,6 +9,11 @@ public abstract class Variable<T> : ScriptableObject
 
     protected virtual void OnEnable()
     {
+        Reset();
+    }
+
+    public virtual void Reset()
+    {
         Value = _initialValue;
     }
 }

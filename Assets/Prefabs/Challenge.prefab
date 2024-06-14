@@ -226,12 +226,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3406141adb254d842bcd316fe8a53036, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  durationSec: 10
+  durationSec: 8
   timer: {fileID: 1552403018684560297}
   title: {fileID: 7368365036266981695}
   description: {fileID: 1222126283062151998}
   details: {fileID: 8574175059883770881}
   moneyVariable: {fileID: 11400000, guid: 66597e678d92171408ecdff117fe9830, type: 2}
+  riskVariable: {fileID: 11400000, guid: 9f795ea0032687f4da5fc24590c36564, type: 2}
 --- !u!1 &3748073882679989747
 GameObject:
   m_ObjectHideFlags: 0
