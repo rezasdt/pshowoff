@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8abba68ad1ca4f24d8f1d5c21384e50a, type: 3}
+  m_Name: S02 C06
+  m_EditorClassIdentifier: 
+  <Title>k__BackingField: Conduct a Customer Appreciation Event
+  <Description>k__BackingField: 
+  <Cost>k__BackingField: 850
+  <SuccessChance>k__BackingField: 70
+  <RewardAmount>k__BackingField: 2000
+  <SuccessMessage>k__BackingField: "The event is a hit, with more love than a puppy
+    video.\r\nResult: You gain $2,000. Customers feel the love!\r"
+  <FailMessage>k__BackingField: "Turnout is so low, you have more staff than guests.\r\nResult:
+    You lose $850. Promote it like a blockbuster movie.\r"

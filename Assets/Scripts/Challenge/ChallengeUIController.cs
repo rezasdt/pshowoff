@@ -18,7 +18,7 @@ public class ChallengeUIController : MonoBehaviour
         _challenge = pChallenge;
         title.text = _challenge.Title;
         description.text = _challenge.Description;
-        details.text = $"{_challenge.Cost.ToString()}$\n{_challenge.RewardAmount.ToString()}$\n{_challenge.SuccessChance.ToString()}%";
+        details.text = $"{_challenge.Cost:N0}$\n{_challenge.RewardAmount:N0}$\n{_challenge.SuccessChance.ToString()}%";
         StartCoroutine(CountdownCoroutine());
     }
 

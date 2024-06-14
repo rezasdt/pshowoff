@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8abba68ad1ca4f24d8f1d5c21384e50a, type: 3}
-  m_Name: Challenge 6
+  m_Name: S03 C02
   m_EditorClassIdentifier: 
   <Title>k__BackingField: Develop a New Marketing Campaign
   <Description>k__BackingField: Launch a new marketing campaign to boost your product's
@@ -18,13 +18,9 @@ MonoBehaviour:
   <Cost>k__BackingField: 1400
   <SuccessChance>k__BackingField: 70
   <RewardAmount>k__BackingField: 4000
-  <SuccessMessage>k__BackingField: 'Your new marketing campaign goes viral. Everyone
-    loves it, and your sales skyrocket.
-
-    Result: You gain $8,000. You''re a marketing
-    genius!'
-  <FailMessage>k__BackingField: 'Your marketing campaign gets misunderstood, and
-    people on social media don''t like it. You spend more time fixing the mess than
-    making sales.
-
-    Result: You lose $2,500. Maybe test your slogans next time.'
+  <SuccessMessage>k__BackingField: "Your new marketing campaign goes viral. Everyone
+    loves it, and your sales skyrocket.\r\nResult: You gain $4,000. You're a marketing
+    genius!\r"
+  <FailMessage>k__BackingField: "Your marketing campaign gets misunderstood, and
+    people on social media don't like it. You spend more time fixing the mess than
+    making sales.\r\nResult: You lose $1,400. Maybe test your slogans next time.\r"

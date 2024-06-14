@@ -10,20 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8abba68ad1ca4f24d8f1d5c21384e50a, type: 3}
-  m_Name: Challenge 9
+  m_Name: S05 C01
   m_EditorClassIdentifier: 
   <Title>k__BackingField: Host a Product Launch Event
   <Description>k__BackingField: Organize a grand event to unveil your new product.
   <Cost>k__BackingField: 3000
   <SuccessChance>k__BackingField: 35
   <RewardAmount>k__BackingField: 15000
-  <SuccessMessage>k__BackingField: 'Your product launch event is a hit. The venue
-    is packed, and pre-orders exceed expectations.
-
-    Result: You gain $10,000.
-    You''ve set a new launch standard!'
-  <FailMessage>k__BackingField: 'Technical issues ruin your product launch event.
-    The live demo fails, and the audience loses interest.
-
-    Result: You lose $3,500.
-    Invest in better tech next time.'
+  <SuccessMessage>k__BackingField: "Your product launch event is a hit. The venue
+    is packed, and pre-orders exceed expectations.\r\nResult: You gain $15,000. You've
+    set a new launch standard!\r"
+  <FailMessage>k__BackingField: "Technical issues ruin your product launch event.
+    The live demo fails, and the audience loses interest.\r\nResult: You lose $3,000.
+    Invest in better tech next time.\r"

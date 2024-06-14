@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8abba68ad1ca4f24d8f1d5c21384e50a, type: 3}
+  m_Name: S04 C05
+  m_EditorClassIdentifier: 
+  <Title>k__BackingField: Join an Industry Association
+  <Description>k__BackingField: 
+  <Cost>k__BackingField: 1500
+  <SuccessChance>k__BackingField: 85
+  <RewardAmount>k__BackingField: 3500
+  <SuccessMessage>k__BackingField: "Membership gives you access to resources more
+    valuable than free snacks at a conference.\r\nResult: You gain $3,500. Industry
+    connections matter!\r"
+  <FailMessage>k__BackingField: "The association's events are as thrilling as a lecture
+    on paint drying.\r\nResult: You lose $1,500. Choose wisely, like picking a good
+    Netflix series.\r"

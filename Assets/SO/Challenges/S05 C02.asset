@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8abba68ad1ca4f24d8f1d5c21384e50a, type: 3}
-  m_Name: Challenge 10
+  m_Name: S05 C02
   m_EditorClassIdentifier: 
   <Title>k__BackingField: Upgrade Factory Technology
   <Description>k__BackingField: Invest in new technology to improve your factory's
@@ -18,13 +18,9 @@ MonoBehaviour:
   <Cost>k__BackingField: 4500
   <SuccessChance>k__BackingField: 75
   <RewardAmount>k__BackingField: 12000
-  <SuccessMessage>k__BackingField: 'Your new factory tech doubles production speed
-    and reduces defects. Your engineers celebrate with a break.
-
-    Result: You
-    gain $20,000. You''re an innovation leader!'
-  <FailMessage>k__BackingField: 'The new factory tech malfunctions, halting production.
-    Repairs take forever, delaying orders.
-
-    Result: You lose $7,000. Sometimes
-    old tech is better.'
+  <SuccessMessage>k__BackingField: "Your new factory tech doubles production speed
+    and reduces defects. Your engineers celebrate with a break.\r\nResult: You gain
+    $12,000. You're an innovation leader!\r"
+  <FailMessage>k__BackingField: "The new factory tech malfunctions, halting production.
+    Repairs take forever, delaying orders.\r\nResult: You lose $4,500. Sometimes
+    old tech is better.\r"

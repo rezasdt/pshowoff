@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8abba68ad1ca4f24d8f1d5c21384e50a, type: 3}
-  m_Name: Challenge 7
+  m_Name: S04 C01
   m_EditorClassIdentifier: 
   <Title>k__BackingField: Attend an International Trade Show
   <Description>k__BackingField: Showcase your products at an international trade
@@ -18,13 +18,9 @@ MonoBehaviour:
   <Cost>k__BackingField: 1900
   <SuccessChance>k__BackingField: 40
   <RewardAmount>k__BackingField: 7500
-  <SuccessMessage>k__BackingField: 'Your booth at the international trade show attracts
-    lots of attention. You secure deals with several international distributors.
-
-    Result:
-    You gain $15,000. You''re now global!'
-  <FailMessage>k__BackingField: 'Your shipment of demo phones gets lost, leaving
-    your booth empty. You try to salvage the situation with brochures, but it doesn''t
-    work.
-
-    Result: You lose $4,000. Next time, carry the demos yourself.'
+  <SuccessMessage>k__BackingField: "Your booth at the international trade show attracts
+    lots of attention. You secure deals with several international distributors.\r\nResult:
+    You gain $7,500. You're now global!\r"
+  <FailMessage>k__BackingField: "Your shipment of demo phones gets lost, leaving
+    your booth empty. You try to salvage the situation with brochures, but it doesn't
+    work.\r\nResult: You lose $1,900. Next time, carry the demos yourself.\r"

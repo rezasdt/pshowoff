@@ -10,20 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8abba68ad1ca4f24d8f1d5c21384e50a, type: 3}
-  m_Name: Challenge 4
+  m_Name: S02 C02
   m_EditorClassIdentifier: 
   <Title>k__BackingField: Invest in a Market Research Study
   <Description>k__BackingField: Conduct a market research study to uncover new opportunities.
   <Cost>k__BackingField: 1250
   <SuccessChance>k__BackingField: 60
   <RewardAmount>k__BackingField: 3000
-  <SuccessMessage>k__BackingField: 'The market research study reveals a hidden market
+  <SuccessMessage>k__BackingField: "The market research study reveals a hidden market
     opportunity. You quickly pivot and start selling to this new audience, boosting
-    your sales.
-
-    Result: You gain $12,000. You''re a market genius!'
-  <FailMessage>k__BackingField: 'The market research study suggests targeting a group
-    that''s not interested in mobile phones. Your new product launch flops.
-
-    Result:
-    You lose $3,000. Not everyone loves gadgets, it seems.'
+    your sales.\r\nResult: You gain $3,000. You're a market genius!\r"
+  <FailMessage>k__BackingField: "The market research study suggests targeting a group
+    that's not interested in mobile phones. Your new product launch flops.\r\nResult:
+    You lose $1,250. Not everyone loves gadgets, it seems.\r"

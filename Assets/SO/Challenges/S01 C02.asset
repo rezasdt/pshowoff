@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8abba68ad1ca4f24d8f1d5c21384e50a, type: 3}
-  m_Name: Challenge 2
+  m_Name: S01 C02
   m_EditorClassIdentifier: 
   <Title>k__BackingField: Collaboration Meeting with a Tech Guru
   <Description>k__BackingField: Pitch your idea to a tech guru and gain their support.
@@ -18,10 +18,8 @@ MonoBehaviour:
   <SuccessChance>k__BackingField: 65
   <RewardAmount>k__BackingField: 850
   <SuccessMessage>k__BackingField: "You meet a tech guru at a caf\xE9 and give a
-    great pitch. The guru loves your idea and agrees to collaborate.\nResult: You
-    gain $10,000. You're now partners with a tech superstar!"
-  <FailMessage>k__BackingField: 'The tech guru seems more interested in their gadgets
-    than your pitch. They excuse themselves for an "important call" and never come
-    back.
-
-    Result: You lose $1,500. Next time, bring a cooler gadget.'
+    great pitch. The guru loves your idea and agrees to collaborate.\r\nResult: You
+    gain $850. You're now partners with a tech superstar!\r"
+  <FailMessage>k__BackingField: "The tech guru seems more interested in their gadgets
+    than your pitch. They excuse themselves for an \"important call\" and never come
+    back.\r\nResult: You lose $250. Next time, bring a cooler gadget.\r"

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8abba68ad1ca4f24d8f1d5c21384e50a, type: 3}
+  m_Name: S01 C04
+  m_EditorClassIdentifier: 
+  <Title>k__BackingField: Hire a Social Media Influencer
+  <Description>k__BackingField: 
+  <Cost>k__BackingField: 200
+  <SuccessChance>k__BackingField: 85
+  <RewardAmount>k__BackingField: 650
+  <SuccessMessage>k__BackingField: "The influencer\u2019s posts about your product
+    go more viral than the latest TikTok dance.\r\nResult: You gain $650. Influencer
+    marketing is lit!\r"
+  <FailMessage>k__BackingField: "The influencer's audience is about as interested
+    as a cat at a dog show.\r\nResult: You lose $200. Maybe pick a dog-loving influencer
+    next time.\r"

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8abba68ad1ca4f24d8f1d5c21384e50a, type: 3}
-  m_Name: Challenge 8
+  m_Name: S04 C02
   m_EditorClassIdentifier: 
   <Title>k__BackingField: Partner with a Celebrity Endorser
   <Description>k__BackingField: Get a celebrity to endorse your product for instant
@@ -18,13 +18,9 @@ MonoBehaviour:
   <Cost>k__BackingField: 2700
   <SuccessChance>k__BackingField: 70
   <RewardAmount>k__BackingField: 6500
-  <SuccessMessage>k__BackingField: 'The celebrity endorser tweets about your product,
-    and it goes viral. Your sales explode.
-
-    Result: You gain $30,000. You''re
-    now famous!'
-  <FailMessage>k__BackingField: 'The celebrity endorser gets into a scandal right
-    after your campaign launches. Your brand gets dragged into the mess.
-
-    Result:
-    You lose $6,000. Maybe choose a safer celebrity next time.'
+  <SuccessMessage>k__BackingField: "The celebrity endorser tweets about your product,
+    and it goes viral. Your sales explode.\r\nResult: You gain $6,500. You're now
+    famous!\r"
+  <FailMessage>k__BackingField: "The celebrity endorser gets into a scandal right
+    after your campaign launches. Your brand gets dragged into the mess.\r\nResult:
+    You lose $2,700. Maybe choose a safer celebrity next time.\r"
