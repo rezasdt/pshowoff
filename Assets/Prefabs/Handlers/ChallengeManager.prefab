@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87dc05cd4a2a7fc41afdb09264108d21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  challengesPerStage: 0
   challengesIntervalSec: 0
   challengePrefab: {fileID: 0}
   stageManager: {fileID: 0}

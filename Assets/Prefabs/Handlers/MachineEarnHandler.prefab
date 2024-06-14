@@ -44,4 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e92d00db0cb45748bdbcdcfd92b5d89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moneyVariable: {fileID: 0}
+  uiManager: {fileID: 0}
+  container: {fileID: 0}
+  indicatorPrefab: {fileID: 0}
+  _camera: {fileID: 0}
+  moneyVariable: {fileID: 0}

@@ -8,6 +8,7 @@ public class ChallengeManager : MonoBehaviour
     [SerializeField] private ChallengeUIController challengePrefab;
     [SerializeField] private StageManager stageManager;
     [SerializeField] private RectTransform challengeCanvas;
+    [SerializeField] private NotificationManager notifManager;
     [Header("SO")]
     [SerializeField] private StageDatabase stageDatabase;
     [SerializeField] private Int32Variable riskCapacityVariable;
@@ -72,10 +73,16 @@ public class ChallengeManager : MonoBehaviour
             yield return new WaitForSeconds(challengesIntervalSec);
             Challenge challenge = _challenges.Dequeue();
             ChallengeUIController challengeUI = Instantiate(challengePrefab, challengeCanvas.transform);
+            challengeUI.OnChallengeSuccess += NotifyResult;
             challengeUI.Init(challenge);
             riskCapacityVariable.Value += 100 - challenge.SuccessChance;
         }
 
         _isCoroutineRunning = false;
+    }
+
+    private void NotifyResult(string pTitle, string pDescription)
+    {
+        notifManager.Create(pTitle, pDescription);
     }
 }

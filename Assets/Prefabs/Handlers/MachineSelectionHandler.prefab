@@ -44,3 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f838c0cc1e209344f979359b93560829, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointInputHandler: {fileID: 0}
+  freePlatformTag:
+    tag: 
+  tooltipUIController: {fileID: 0}
+  tooltip: {fileID: 0}
+  upgradeTooltip: {fileID: 0}
+  moneyVariable: {fileID: 0}
+  riskVariable: {fileID: 0}

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class ImprovedMachineController : MachineController
 {
+    public static event System.Action OnDefectedUpgrade = delegate { };
     public bool IsHealthy { get; private set; }
     public override int ResaleValue
     {
@@ -17,6 +18,7 @@ public class ImprovedMachineController : MachineController
     private void Start()
     {
         if (IsHealthy) StartCoroutine(EarnCoroutine());
+        else OnDefectedUpgrade.Invoke();
     }
 
     public int RepairCost
