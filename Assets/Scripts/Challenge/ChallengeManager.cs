@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 public class ChallengeManager : MonoBehaviour
 {
+    [SerializeField] private int challengesPerStage;
     [SerializeField] private int challengesIntervalSec;
     [SerializeField] private ChallengeUIController challengePrefab;
     [SerializeField] private StageManager stageManager;
@@ -13,7 +14,7 @@ public class ChallengeManager : MonoBehaviour
 
     private int _highestReachedStage = -1;
     private bool _isCoroutineRunning = false;
-    private Queue<Challenge> _challengeQueue = new();
+    private readonly Queue<Challenge> _challenges = new();
 
     private void OnEnable()
     {
@@ -38,12 +39,18 @@ public class ChallengeManager : MonoBehaviour
         for (int stageIndex = _highestReachedStage + 1; stageIndex <= newStage; stageIndex++)
         {
             Stage stage = stageDatabase.Stages[stageIndex];
-            for (int i = 0; i < 2; i++)
+            List<int> selectedIndices = new List<int>();
+
+            int challengesToAdd = Mathf.Min(challengesPerStage, stage.Challenges.Length);
+
+            while (selectedIndices.Count < challengesToAdd)
             {
-                if (stage.Challenges.Length > 0)
+                int randomIndex = Random.Range(0, stage.Challenges.Length);
+
+                if (!selectedIndices.Contains(randomIndex))
                 {
-                    int randomIndex = Random.Range(0, stage.Challenges.Length);
-                    _challengeQueue.Enqueue(stage.Challenges[randomIndex]);
+                    selectedIndices.Add(randomIndex);
+                    _challenges.Enqueue(stage.Challenges[randomIndex]);
                 }
             }
         }
@@ -60,10 +67,10 @@ public class ChallengeManager : MonoBehaviour
     {
         _isCoroutineRunning = true;
 
-        while (_challengeQueue.Count > 0)
+        while (_challenges.Count > 0)
         {
             yield return new WaitForSeconds(challengesIntervalSec);
-            Challenge challenge = _challengeQueue.Dequeue();
+            Challenge challenge = _challenges.Dequeue();
             ChallengeUIController challengeUI = Instantiate(challengePrefab, challengeCanvas.transform);
             challengeUI.Init(challenge);
             riskCapacityVariable.Value += 100 - challenge.SuccessChance;
