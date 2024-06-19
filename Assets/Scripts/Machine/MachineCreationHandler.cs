@@ -9,6 +9,7 @@ public class MachineCreationHandler : MonoBehaviour
     [SerializeField] private PointInputHandler inputHandler;
     [Header("SO")]
     [SerializeField] private Int64Variable moneyVariable;
+    [SerializeField] private MachineControllerRuntimeSet mControllerRuntimeSet;
     
     private MachineBase _selectedMachine;
     private PlayerControls _playerControls;
@@ -55,6 +56,7 @@ public class MachineCreationHandler : MonoBehaviour
         
         var newMachine = Instantiate(_selectedMachine.Prefab, pPlatform.transform.position, Quaternion.identity)
             .GetComponent<MachineController>();
+        mControllerRuntimeSet.Add(newMachine);
         newMachine.Platform = pPlatform;
         pPlatform.tag = reservedPlatformTag;
         pPlatform.gameObject.SetActive(false);

@@ -4,10 +4,9 @@ using System.Collections.Generic;
 
 public class StageManager : MonoBehaviour
 {
-    [SerializeField]
-    private Int64Variable _moneyVariable;
-    [SerializeField]
-    private StageDatabase _stageDatabase;
+    [SerializeField] private Int64Variable _moneyVariable;
+    [SerializeField] private StageDatabase _stageDatabase;
+    [SerializeField] private MachineControllerRuntimeSet mControllerRuntimeSet;
 
     public event System.Action<int> OnStageChange = delegate { };
 
@@ -38,7 +37,7 @@ public class StageManager : MonoBehaviour
         int currentStage = -1;
         foreach (int threshold in _stageThresholds)
         {
-            if (_moneyVariable.Value > threshold) currentStage++;
+            if (_moneyVariable.Value + mControllerRuntimeSet.Value > threshold) currentStage++;
         }
         return Mathf.Min(currentStage, _stageThresholds.Count - 2);
     }

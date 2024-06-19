@@ -9,14 +9,17 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Int32Variable daysTotalVariable;
     [SerializeField] private Int32Variable dayLengthSecVariable;
     [SerializeField] private Int64Variable timerVariable;
-
-    private void Awake()
-    {
-        moneyVariable.Reset();
-    }
+    [SerializeField] private Int32Variable riskVariable;
+    [SerializeField] private Int32Variable riskCapacityVariable;
+    [SerializeField] private MachineControllerRuntimeSet mControllerRuntimeSet;
 
     void Start()
     {
+        moneyVariable.Reset();
+        riskVariable.Reset();
+        riskCapacityVariable.Reset();
+        mControllerRuntimeSet.Clear();
+        
         timerVariable.Value = daysTotalVariable.Value * dayLengthSecVariable.Value;
         StartCoroutine(TimerCoroutine());
     }
@@ -29,11 +32,7 @@ public class GameManager : MonoBehaviour
             timerVariable.Value -= 1;
         }
 
-        var existingMachines = GameObject.FindObjectsOfType<MachineController>();
-        foreach (var machine in existingMachines)
-        {
-            moneyVariable.Value += machine.ResaleValue;
-        }
+        moneyVariable.Value += mControllerRuntimeSet.Value;
         Time.timeScale = 0f;
         outcome.gameObject.SetActive(true);
     }
