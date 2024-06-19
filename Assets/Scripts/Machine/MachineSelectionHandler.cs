@@ -11,6 +11,7 @@ public class MachineSelectionHandler : MonoBehaviour
     [Header("SO")]
     [SerializeField] private Int64Variable moneyVariable;
     [SerializeField] private Int32Variable riskVariable;
+    [SerializeField] private Int32Variable riskCapacityVariable;
     
     private MachineController _selectedMachine;
     private PlayerControls _playerControls;
@@ -89,14 +90,27 @@ public class MachineSelectionHandler : MonoBehaviour
     public void Upgrade()
     {
         if (_selectedMachine.Machine.Upgrade.Cost > moneyVariable.Value) return;
+        
+        //var improvedMachine = ;
+        if (_selectedMachine.Machine is ImprovedMachine)
+        {
+            riskVariable.Value += 100 - ((ImprovedMachine)_selectedMachine.Machine).HealthySpawnChance;
+        }
+        if (_selectedMachine.Machine.Upgrade != null)
+        {
+            var amount = 100 - _selectedMachine.Machine.Upgrade.HealthySpawnChance;
+            riskCapacityVariable.Value += amount;
+            if (_selectedMachine.Machine.Upgrade.Upgrade == null)
+                riskCapacityVariable.Value -= amount;
+        }
+        
+        Destroy(_selectedMachine.gameObject);
         var newMachineController =
             Instantiate(_selectedMachine.Machine.Upgrade.Prefab, _selectedMachine.gameObject.transform.position,
                     Quaternion.identity)
                 .GetComponent<MachineController>();
         newMachineController.Platform = _selectedMachine.Platform;
-        Destroy(_selectedMachine.gameObject);
         moneyVariable.Value -= _selectedMachine.Machine.Upgrade.Cost;
-        riskVariable.Value += 100 - _selectedMachine.Machine.Upgrade.HealthySpawnChance;
         HideTooltips();
     }
     

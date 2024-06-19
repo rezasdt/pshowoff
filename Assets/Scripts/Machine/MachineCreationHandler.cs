@@ -9,8 +9,7 @@ public class MachineCreationHandler : MonoBehaviour
     [SerializeField] private PointInputHandler inputHandler;
     [Header("SO")]
     [SerializeField] private Int64Variable moneyVariable;
-    [SerializeField] private Int32Variable riskCapacityVariable;
-
+    
     private MachineBase _selectedMachine;
     private PlayerControls _playerControls;
     private PlayerControls.PlayerActions _playerActions;
@@ -62,8 +61,5 @@ public class MachineCreationHandler : MonoBehaviour
         moneyVariable.Value -= _selectedMachine.Cost;
         _selectedMachine = null;
         platformsParent.SetActive(false);
-
-        if (newMachine.Machine.Upgrade == null) return;
-        riskCapacityVariable.Value += 100 - (newMachine.Machine.Upgrade).HealthySpawnChance;
     }
 }

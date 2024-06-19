@@ -5,8 +5,8 @@ using UnityEngine;
 public class ChallengeUIController : MonoBehaviour
 {
     public event System.Action<string, string> OnChallengeSuccess = delegate { };
-
-        [SerializeField] private int durationSec;
+    
+    [SerializeField] private int durationSec;
     [SerializeField] private TextMeshProUGUI timer;
     [SerializeField] private TextMeshProUGUI title;
     [SerializeField] private TextMeshProUGUI description;
