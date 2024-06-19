@@ -1,11 +1,9 @@
-using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private string sceneToLoad;
+    [SerializeField] private GameObject outcome;
     [Header("SO")]
     [SerializeField] private Int64Variable moneyVariable;
     [SerializeField] private Int32Variable daysTotalVariable;
@@ -36,11 +34,8 @@ public class GameManager : MonoBehaviour
         {
             moneyVariable.Value += machine.ResaleValue;
         }
-        LoadNextScene(sceneToLoad);
+        
+        outcome.gameObject.SetActive(true);
     }
-    
-    private void LoadNextScene(string scene)
-    {
-        SceneManager.LoadScene(scene);
-    }
+
 }
