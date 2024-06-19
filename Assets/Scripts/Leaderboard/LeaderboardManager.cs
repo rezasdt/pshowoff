@@ -63,7 +63,7 @@ public class LeaderboardManager : MonoBehaviour
         try
         {
             await AuthenticationService.Instance.SignInAnonymouslyAsync();
-            Debug.Log("Signed in anonymously");
+            //Debug.Log("Signed in anonymously");
         }
         catch (AuthenticationException ex)
         {
@@ -74,13 +74,13 @@ public class LeaderboardManager : MonoBehaviour
     private async Task AddScore(string leaderboardId, long score)
     {
         var playerEntry = await LeaderboardsService.Instance.AddPlayerScoreAsync(leaderboardId, (double)score);
-        Debug.Log(JsonConvert.SerializeObject(playerEntry));
+        //Debug.Log(JsonConvert.SerializeObject(playerEntry));
     }
 
     private async Task GetPlayerScore(string leaderboardId)
     {
         var scoreResponse = await LeaderboardsService.Instance.GetPlayerScoreAsync(leaderboardId);
-        Debug.Log(JsonConvert.SerializeObject(scoreResponse));
+        //Debug.Log(JsonConvert.SerializeObject(scoreResponse));
 
         // Cache the player name
         JObject responseJson = JObject.Parse(JsonConvert.SerializeObject(scoreResponse));
@@ -133,10 +133,10 @@ public class LeaderboardManager : MonoBehaviour
             _leaderboardPlayers[rank] = new LeaderboardPlayer(rank, playerName, score);
         }
 
-        foreach (var entry in _leaderboardPlayers)
-        {
-            Debug.Log(entry.Value);
-        }
+        // foreach (var entry in _leaderboardPlayers)
+        // {
+        //     Debug.Log(entry.Value);
+        // }
     }
     
     

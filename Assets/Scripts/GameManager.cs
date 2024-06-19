@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
         {
             moneyVariable.Value += machine.ResaleValue;
         }
-        
+        Time.timeScale = 0f;
         outcome.gameObject.SetActive(true);
     }
 
