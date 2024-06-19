@@ -14,7 +14,6 @@ public class MachineEarnHandler : MonoBehaviour
 
     private void Awake()
     {
-        moneyVariable.Reset();
         _pool = new ObjectPool<EarnIndicatorUIController>(
             CreateIndicator,
             OnGetFromPool,
