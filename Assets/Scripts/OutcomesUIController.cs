@@ -16,7 +16,7 @@ public class OutcomesUIController : MonoBehaviour
         resultText.text = $"The business generated {moneyVariable.Value:N0}$ in {daysTotalVariable.Value} days!\n";
         if (riskCapacityVariable.Value > 0)
         {
-            resultText.text += $"You are {Mathf.FloorToInt((float)riskVariable.Value / riskCapacityVariable.Value)}% a risk taker!";
+            resultText.text += $"You are {Mathf.FloorToInt((float)riskVariable.Value / riskCapacityVariable.Value * 100)}% a risk taker!";
         }
     }
 }
