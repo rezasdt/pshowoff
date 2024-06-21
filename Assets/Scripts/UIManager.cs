@@ -19,6 +19,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Int32Variable daysTotalVariable;
     [SerializeField] private Int32Variable dayLengthSecVariable;
     [SerializeField] private Int64Variable timerVariable;
+    [SerializeField] private MachineControllerRuntimeSet mControllerRuntimeSet;
 
     private readonly StringBuilder _sb = new();
 
@@ -81,6 +82,6 @@ public class UIManager : MonoBehaviour
         _sb.Append(moneyVariable.Value.ToString("N0"));
         _sb.Append("$");
         moneyText.text = _sb.ToString();
-        thresholdSlider.value = moneyVariable.Value;
+        thresholdSlider.value = moneyVariable.Value + mControllerRuntimeSet.Value;
     }
 }
