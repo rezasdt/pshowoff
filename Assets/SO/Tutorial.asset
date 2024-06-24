@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a200f39bff36a04c849fd31419782c0, type: 3}
+  m_Name: Tutorial
+  m_EditorClassIdentifier: 
+  <tutorialList>k__BackingField:
+  - <Description>k__BackingField: Welcome to Vendora! Are you ready to take over
+      the market and build your own mobile phone empire? Let's get started!
+    <VideoFileName>k__BackingField: 
+  - <Description>k__BackingField: 'You start with $500. Let''s place your first machine.
+      You will select one of the machines from the menu and place it on an empty
+      tile.
+
+      If you click on the machine, you will be able to see more details
+      about it.'
+    <VideoFileName>k__BackingField: 
+  - <Description>k__BackingField: 'Watch as your revenue increases. Your goal is
+      to maximize your earnings and grow your business.
+
+      Wait until you have
+      enough money to buy another machine, then place it on an empty tile. By doing
+      so you will be able to increase your revenue and grow your business faster.'
+    <VideoFileName>k__BackingField: 
+  - <Description>k__BackingField: 'Now, let''s upgrade a machine to make more money.
+      Select a machine to see its upgrade options. Upgrading increases revenue but
+      costs money and has a success rate. Let''s upgrade this machine to level 2.
+
+      Great!
+      Your machine is now level 2 and generates $2 per second.
+
+'
+    <VideoFileName>k__BackingField: 
+  - <Description>k__BackingField: 'Upgrading isn''t always successful. If an upgrade
+      fails, the machine is destroyed, but you can repair it.
+
+      Repairing brings
+      the machine back to its previous level, but it costs more. Be strategic!
+
+      You
+      can also choose to sell the destroyed machine but for 25% of its initial value.'
+    <VideoFileName>k__BackingField: 
+  - <Description>k__BackingField: Sometimes you need to make room for better machines.
+      Let's sell a machine. You will get 50% of its initial price.
+    <VideoFileName>k__BackingField: 
+  - <Description>k__BackingField: "You can take on challenges to earn extra money
+      once 3 days. Let's try one. But be aware you will have 10 seconds to make up
+      your mind on accepting or not the challenge.\r\nThese challenges have a risk
+      chance as well. The rates will be shown once with the details about the challenge.
+      Let\u2019s take this challenge and see what happens.\r\nNow if the challenge
+      fails, you will end up losing the funds paid for it and you will also see the
+      reason of failing it.\r"
+    <VideoFileName>k__BackingField: 
+  - <Description>k__BackingField: 'As you earn more money, you''ll progress through
+      different business stages, unlocking better machines. The stages are as it
+      follows: startup, growth, expansion, maturity and unicorn.
+
+      Although
+      if you will not be able to maintain the value of your business you will decrease
+      in stage.'
+    <VideoFileName>k__BackingField: 
+  - <Description>k__BackingField: "To succeed in Vendora, manage your money wisely,
+      upgrade strategically, and complete challenges. Your goal after all is to reach
+      the highest business stage and maximize your revenue within 30 days. At the
+      end, don\u2019t forget to share the position you have on the leaderboard with
+      your friends. Good luck!"
+    <VideoFileName>k__BackingField: 
