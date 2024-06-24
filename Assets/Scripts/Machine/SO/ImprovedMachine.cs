@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Machine/Improved")]
 public class ImprovedMachine : MachineBase
 {
-    public static float RepairFactor { get; } = 1.25f;
+    public static float RepairFactor { get; } = 1f;
     public static float SalvageFactor { get; } = 0.25f;
 
     [field: SerializeField]
