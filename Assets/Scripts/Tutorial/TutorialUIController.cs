@@ -54,4 +54,9 @@ public class TutorialUIController : MonoBehaviour
         if (_index - 1 < 0) return;
         LoadTutorial(--_index);
     }
+
+    public void Skip()
+    {
+        textTyper.Skip();
+    }
 }
