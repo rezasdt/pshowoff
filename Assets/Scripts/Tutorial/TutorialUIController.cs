@@ -1,6 +1,7 @@
 using RedBlueGames.Tools.TextTyper;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Video;
 
 public class TutorialUIController : MonoBehaviour
@@ -12,13 +13,34 @@ public class TutorialUIController : MonoBehaviour
     [SerializeField] private Tutorial tutorial;
 
     private int _index = -1;
-
+    private PlayerControls _playerControls;
+    private PlayerControls.PlayerActions _playerActions;
+    
     private void Awake()
     {
+        _playerControls = new PlayerControls();
+        _playerActions = _playerControls.Player;
         if (tutorial.tutorialList.Count > 0)
         {
             _index = 0;
         }
+    }
+    
+    private void OnEnable()
+    {
+        _playerActions.Enable();
+        _playerActions.Point.performed += OnPoint;
+    }
+
+    private void OnDisable()
+    {
+        _playerActions.Disable();
+        _playerActions.Point.performed -= OnPoint;
+    }
+
+    private void OnPoint(InputAction.CallbackContext context)
+    {
+        Skip();
     }
 
     private void Start()
