@@ -16,6 +16,7 @@ public class ChallengeManager : MonoBehaviour
     private int _highestReachedStage = -1;
     private bool _isCoroutineRunning = false;
     private readonly Queue<Challenge> _challenges = new();
+    private string _challengeDescription;
 
     private void OnEnable()
     {
@@ -72,6 +73,7 @@ public class ChallengeManager : MonoBehaviour
         {
             yield return new WaitForSeconds(challengesIntervalSec);
             Challenge challenge = _challenges.Dequeue();
+            AudioManager.Instance.PlaySoundeffect(AudioManager.Instance.Sounds.Challenge);
             ChallengeUIController challengeUI = Instantiate(challengePrefab, challengeCanvas.transform);
             challengeUI.OnChallengeSuccess += NotifyResult;
             challengeUI.Init(challenge);
@@ -81,8 +83,20 @@ public class ChallengeManager : MonoBehaviour
         _isCoroutineRunning = false;
     }
 
-    private void NotifyResult(string pTitle, string pDescription)
+    private void NotifyResult(bool pResult, string pDescription)
     {
-        notifManager.Create(pTitle, pDescription);
+        _challengeDescription = pDescription;
+        Invoke(pResult ? nameof(OnChallengeSuccess) : nameof(OnChallengeFail), 2f);
+    }
+
+    private void OnChallengeSuccess()
+    {
+        AudioManager.Instance.PlaySoundeffect(AudioManager.Instance.Sounds.ChallengeSuccess);
+        notifManager.Create("Challenge Successful!", _challengeDescription);
+    }
+    private void OnChallengeFail()
+    {
+        AudioManager.Instance.PlaySoundeffect(AudioManager.Instance.Sounds.ChallengeFail);
+        notifManager.Create("Challenge Failed!", _challengeDescription);
     }
 }

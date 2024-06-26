@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0d6026240f905f47883e0f5805ddeee, type: 3}
+  m_Name: Sounds
+  m_EditorClassIdentifier: 
+  <Muted>k__BackingField: 0
+  initialSoundtrackVolume: 0.8
+  soundtrackVolume: 0.8
+  <StartMenu>k__BackingField: {fileID: 8300000, guid: a0fe167a8a36e7344829a41d45782e50,
+    type: 3}
+  <Game>k__BackingField: {fileID: 8300000, guid: 8125f3930cc92b24ebbb7a935dcca1a7,
+    type: 3}
+  initialSounddffectVolume: 0.8
+  soundeffectVolume: 0.8
+  <Challenge>k__BackingField: {fileID: 8300000, guid: ee9e6b571a1caf3448a014e6da3601e2,
+    type: 3}
+  <ChallengeSuccess>k__BackingField: {fileID: 8300000, guid: 84b80352f66522049a1221b8695f99b6,
+    type: 3}
+  <ChallengeFail>k__BackingField: {fileID: 8300000, guid: 1f27a662975e7b64ba744a2233b8bb2e,
+    type: 3}
+  <BuildSuccess>k__BackingField: {fileID: 8300000, guid: 24bea6c8abb67ec499a45cb56db55f56,
+    type: 3}
+  <BuildFail>k__BackingField: {fileID: 8300000, guid: 6a9e9f8914e65a9499f3488432b80328,
+    type: 3}

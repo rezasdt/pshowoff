@@ -17,8 +17,16 @@ public class ImprovedMachineController : MachineController
 
     private void Start()
     {
-        if (IsHealthy) StartCoroutine(EarnCoroutine());
-        else OnDefectedUpgrade.Invoke();
+        if (IsHealthy)
+        {
+            AudioManager.Instance.PlaySoundeffect(AudioManager.Instance.Sounds.BuildSuccess);
+            StartCoroutine(EarnCoroutine());
+        }
+        else
+        {
+            AudioManager.Instance.PlaySoundeffect(AudioManager.Instance.Sounds.BuildFail);
+            OnDefectedUpgrade.Invoke();
+        }
     }
 
     public int RepairCost

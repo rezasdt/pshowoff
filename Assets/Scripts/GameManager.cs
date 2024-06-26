@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
         
         timerVariable.Value = daysTotalVariable.Value * dayLengthSecVariable.Value;
         StartCoroutine(TimerCoroutine());
+        AudioManager.Instance.PlaySoundtrack(AudioManager.Instance.Sounds.Game);
     }
 
     private IEnumerator TimerCoroutine()

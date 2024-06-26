@@ -1425,6 +1425,8 @@ MonoBehaviour:
   cost: {fileID: 369312121294713012}
   earn: {fileID: 3565267016676726761}
   resale: {fileID: 5598539563230426856}
+  repair: {fileID: 0}
+  repairPanel: {fileID: 0}
   repairButtonPanel: {fileID: 6557183639641905143}
   upgradeButtonPanel: {fileID: 4957207321232947983}
   healthyChance: {fileID: 7787207506374456176}

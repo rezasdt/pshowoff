@@ -9,6 +9,7 @@ public class StarterMachineController : MachineController
 
     private void Start()
     {
+        AudioManager.Instance.PlaySoundeffect(AudioManager.Instance.Sounds.BuildSuccess);
         StartCoroutine(EarnCoroutine());
     }
 }

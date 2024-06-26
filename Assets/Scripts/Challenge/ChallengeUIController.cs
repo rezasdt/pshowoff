@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ChallengeUIController : MonoBehaviour
 {
-    public event System.Action<string, string> OnChallengeSuccess = delegate { };
+    public event System.Action<bool, string> OnChallengeSuccess = delegate { };
     
     [SerializeField] private int durationSec;
     [SerializeField] private TextMeshProUGUI timer;
@@ -44,11 +44,11 @@ public class ChallengeUIController : MonoBehaviour
         if (Random.Range(0, 100) < _challenge.SuccessChance)
         {
             moneyVariable.Value += _challenge.RewardAmount;
-            OnChallengeSuccess.Invoke("Challenge Successful!", _challenge.SuccessMessage);
+            OnChallengeSuccess.Invoke(true, _challenge.SuccessMessage);
         }
         else
         {
-            OnChallengeSuccess.Invoke("Challenge Failed!", _challenge.FailMessage);
+            OnChallengeSuccess.Invoke(false, _challenge.FailMessage);
         }
         riskVariable.Value += 100 - _challenge.SuccessChance;
         Destroy(gameObject);
