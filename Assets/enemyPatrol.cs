@@ -55,7 +55,7 @@ public class enemyPatrol : MonoBehaviour
             transform.Rotate(0f, 180f, 0f);
 
             // Log the flipping action for debugging
-            Debug.Log("Character flipped. New rotation: " + transform.rotation.eulerAngles);
+            //Debug.Log("Character flipped. New rotation: " + transform.rotation.eulerAngles);
         }
     }
 }
