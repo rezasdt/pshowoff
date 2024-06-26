@@ -86,7 +86,8 @@ public class ChallengeManager : MonoBehaviour
     private void NotifyResult(bool pResult, string pDescription)
     {
         _challengeDescription = pDescription;
-        Invoke(pResult ? nameof(OnChallengeSuccess) : nameof(OnChallengeFail), 2f);
+        if (pResult) OnChallengeSuccess();
+        else OnChallengeFail();
     }
 
     private void OnChallengeSuccess()
