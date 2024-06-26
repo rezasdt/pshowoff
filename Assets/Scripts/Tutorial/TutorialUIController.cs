@@ -9,6 +9,8 @@ public class TutorialUIController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI description;
     [SerializeField] private TextTyper textTyper;
     [SerializeField] private VideoPlayer videoPlayer;
+    [SerializeField] private GameObject prevButton;
+    [SerializeField] private GameObject nextButton;
     [Header("SO")]
     [SerializeField] private Tutorial tutorial;
 
@@ -50,6 +52,7 @@ public class TutorialUIController : MonoBehaviour
 
     private void LoadTutorial(int pIndex)
     {
+        ButtonDisableOnBoundary();
         description.text = tutorial.tutorialList[pIndex].Description;
         textTyper.TypeText(description.text);
         if (tutorial.tutorialList[pIndex].VideoFileName == "")
@@ -65,6 +68,12 @@ public class TutorialUIController : MonoBehaviour
         videoPlayer.Play();
     }
 
+    private void ButtonDisableOnBoundary()
+    {
+        prevButton.SetActive(_index != 0);
+        nextButton.SetActive(_index != tutorial.tutorialList.Count - 1);
+    }
+    
     public void LoadNext()
     {
         if (_index + 1 >= tutorial.tutorialList.Count) return;
