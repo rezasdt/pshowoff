@@ -38,7 +38,7 @@ MonoBehaviour:
       Your machine is now level 2 and generates $17 per second.
 
 '
-    <VideoFileName>k__BackingField: v2.mp
+    <VideoFileName>k__BackingField: v2.mp4
   - <Description>k__BackingField: 'Upgrading isn''t always successful. If an upgrade
       fails, the machine is destroyed, but you can repair it.
 
