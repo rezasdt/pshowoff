@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -7,6 +8,7 @@ using Unity.Services.Authentication;
 using System.Threading.Tasks;
 using Unity.Services.Core;
 using Newtonsoft.Json.Linq;
+using UnityEngine.Serialization;
 
 public class LeaderboardManager : MonoBehaviour
 {
@@ -30,7 +32,6 @@ public class LeaderboardManager : MonoBehaviour
     }
 
     [SerializeField] private string leaderboardId = "top_players";
-    [SerializeField] private GameObject leaderboardButton;
     [SerializeField] private GameObject leaderboardView;
     [SerializeField] private RectTransform container;
     [SerializeField] private LeaderboardEntryUI entry1Prefab;
@@ -38,24 +39,32 @@ public class LeaderboardManager : MonoBehaviour
     [SerializeField] private LeaderboardEntryUI entry3Prefab;
     [SerializeField] private LeaderboardEntryUI entryOtherPrefab;
     [SerializeField] private Int64Variable moneyVariable;
+    [SerializeField] private BoolVariable isPlaying;
     private SortedDictionary<int, LeaderboardPlayer> _leaderboardPlayers = new();
     private System.Action<LeaderboardPlayer> _createEntry;
-    private string _cachedPlayerName;
-    
-    private void Awake()
-    {
-        _createEntry = CreateEntry1;
-    }
+    private string _cachedPlayerName = string.Empty;
 
-    async void Start()
+    private async void OnEnable()
     {
+        _cachedPlayerName = string.Empty;
+        _createEntry = CreateEntry1;
+        _leaderboardPlayers.Clear();
         await UnityServices.InitializeAsync();
         await SignInAnonymouslyAsync();
-        await AddScore(leaderboardId, moneyVariable.Value);
-        await GetPlayerScore(leaderboardId);
+        try
+        {
+            await AddScore(leaderboardId, moneyVariable.Value);
+            await GetPlayerScore(leaderboardId);
+        }
+        catch { }
         await GetScores(leaderboardId);
-        await GetPlayerRange(leaderboardId);
+        try
+        {
+            await GetPlayerRange(leaderboardId);
+        }
+        catch { }
         CreateEntries();
+        leaderboardView.SetActive(true);
     }
 
     private async Task SignInAnonymouslyAsync()
@@ -65,14 +74,16 @@ public class LeaderboardManager : MonoBehaviour
             await AuthenticationService.Instance.SignInAnonymouslyAsync();
             //Debug.Log("Signed in anonymously");
         }
-        catch (AuthenticationException ex)
-        {
-            Debug.LogError($"Sign in failed: {ex}");
-        }
+        catch { }
+        // catch (AuthenticationException ex)
+        // {
+        //     Debug.LogError($"Sign in failed: {ex}");
+        // }
     }
 
     private async Task AddScore(string leaderboardId, long score)
     {
+        if (!isPlaying.Value) return;
         var playerEntry = await LeaderboardsService.Instance.AddPlayerScoreAsync(leaderboardId, (double)score);
         //Debug.Log(JsonConvert.SerializeObject(playerEntry));
     }
@@ -105,24 +116,24 @@ public class LeaderboardManager : MonoBehaviour
 
     private void CreateEntries()
     {
-        var playerToUpdate = _leaderboardPlayers.Values.FirstOrDefault(p => p.playerName == _cachedPlayerName);
-        if (playerToUpdate != null)
+        if (_cachedPlayerName != string.Empty)
         {
-            playerToUpdate.playerName = "You";
+            var playerToUpdate = _leaderboardPlayers.Values.FirstOrDefault(p => p.playerName == _cachedPlayerName);
+            if (playerToUpdate != null)
+            {
+                playerToUpdate.playerName = "You";
+            }
         }
 
         foreach (var entry in _leaderboardPlayers)
         {
             _createEntry(entry.Value);
         }
-        leaderboardView.gameObject.SetActive(true);
-        leaderboardButton.gameObject.SetActive(true);
     }
 
     private void ProcessScores(object scoresResponse)
     {
         JObject scoresJson = JObject.Parse(JsonConvert.SerializeObject(scoresResponse));
-        _leaderboardPlayers.Clear();
 
         foreach (var result in scoresJson["results"])
         {
@@ -167,4 +178,11 @@ public class LeaderboardManager : MonoBehaviour
         entry.Init(pPlayer.rank, pPlayer.playerName, pPlayer.score);
     }
 
+    private void OnDisable()
+    {
+        foreach (Transform child in container)
+        {
+            Destroy(child.gameObject);
+        }
+    }
 }

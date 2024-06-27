@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22aad05c956dd8445ab7a6780563a4f2, type: 3}
+  m_Name: Risk Advice
+  m_EditorClassIdentifier: 
+  riskStages:
+  - <MinRisk>k__BackingField: 0
+    <Title>k__BackingField: The Cautious Planner
+    <Advice>k__BackingField: Rely on thorough research, start small, maintain financial
+      safety nets, and seek advice from experienced mentors.
+  - <MinRisk>k__BackingField: 21
+    <Title>k__BackingField: The Pragmatic Entrepreneur
+    <Advice>k__BackingField: Balance risks and rewards, diversify investments, plan
+      for various outcomes, and stay informed about industry trends.
+  - <MinRisk>k__BackingField: 41
+    <Title>k__BackingField: The Calculated Risk Taker
+    <Advice>k__BackingField: Take informed risks based on data, leverage your strengths,
+      build strategic partnerships, and be adaptable to change.
+  - <MinRisk>k__BackingField: 61
+    <Title>k__BackingField: The Ambitious Adventurer
+    <Advice>k__BackingField: Pursue bold opportunities, trust your instincts, learn
+      from failures, and invest in innovative ideas with potential high returns.
+  - <MinRisk>k__BackingField: 81
+    <Title>k__BackingField: The Fearless Visionary
+    <Advice>k__BackingField: Embrace high risks for high rewards, be resilient in
+      the face of setbacks, disrupt the market with groundbreaking ideas, and lead
+      with confidence and vision.

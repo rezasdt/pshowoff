@@ -6,6 +6,7 @@ public class Sounds : ScriptableObject
 {
     public event Action<float> SoundtrackVolumeChanged = delegate { };
     public event Action<float> SoundeffectVolumeChanged = delegate { };
+    public bool Muted { get; set; } = false;
     public float SoundtrackVolume
     {
         get => soundtrackVolume;
@@ -24,10 +25,6 @@ public class Sounds : ScriptableObject
             SoundeffectVolumeChanged.Invoke(value);
         }
     }
-    
-    [field: Header("General")]
-    [field: SerializeField] public bool Muted { get; set; } = false;
-
 
     [Header("Soundtracks")]
     [Range(0f, 1f)][SerializeField] private float initialSoundtrackVolume;

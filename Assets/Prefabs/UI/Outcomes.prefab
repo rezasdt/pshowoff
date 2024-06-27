@@ -520,14 +520,13 @@ GameObject:
   - component: {fileID: 1521465192742572672}
   - component: {fileID: 7427246176925104902}
   - component: {fileID: 2759012008350916569}
-  - component: {fileID: 4928841242909810468}
   m_Layer: 5
   m_Name: Outcomes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6117437140315809473
 RectTransform:
   m_ObjectHideFlags: 0
@@ -603,32 +602,8 @@ MonoBehaviour:
   riskVariable: {fileID: 11400000, guid: 9f795ea0032687f4da5fc24590c36564, type: 2}
   riskCapacityVariable: {fileID: 11400000, guid: 871faa578bed57d4784d58dcf0fa0460,
     type: 2}
+  riskAdvice: {fileID: 11400000, guid: a22e5b8cd7a796048963c3092ad1b05c, type: 2}
   daysTotalVariable: {fileID: 11400000, guid: 59ca62294a8df454a88e8786c02648b3, type: 2}
---- !u!114 &4928841242909810468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4631438247389862178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02873a1d0a86a754b93c9c842038bd3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leaderboardId: top_players
-  leaderboardButton: {fileID: 5933405940229493473}
-  leaderboardView: {fileID: 0}
-  container: {fileID: 0}
-  entry1Prefab: {fileID: 2212274923186520133, guid: a3b976f065d3b4145897cb9bc82c048d,
-    type: 3}
-  entry2Prefab: {fileID: 3436965586158892558, guid: 7a67e64d7240fc04bad5ab83e63c7243,
-    type: 3}
-  entry3Prefab: {fileID: 5186422641459003575, guid: b137b6a2ae074654591a01e3b05e8aaf,
-    type: 3}
-  entryOtherPrefab: {fileID: 3595687342754807594, guid: 0c638ebc5d97b2c4c9161467d801f4fa,
-    type: 3}
-  moneyVariable: {fileID: 11400000, guid: 66597e678d92171408ecdff117fe9830, type: 2}
 --- !u!1 &5490225143474794265
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,15 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0d6026240f905f47883e0f5805ddeee, type: 3}
   m_Name: Sounds
   m_EditorClassIdentifier: 
-  <Muted>k__BackingField: 0
   initialSoundtrackVolume: 0.8
-  soundtrackVolume: 0.8
+  soundtrackVolume: 0.4712298
   <StartMenu>k__BackingField: {fileID: 8300000, guid: a0fe167a8a36e7344829a41d45782e50,
     type: 3}
   <Game>k__BackingField: {fileID: 8300000, guid: 8125f3930cc92b24ebbb7a935dcca1a7,
     type: 3}
   initialSounddffectVolume: 0.8
-  soundeffectVolume: 0.8
+  soundeffectVolume: 0.5253086
   <Challenge>k__BackingField: {fileID: 8300000, guid: ee9e6b571a1caf3448a014e6da3601e2,
     type: 3}
   <ChallengeSuccess>k__BackingField: {fileID: 8300000, guid: 84b80352f66522049a1221b8695f99b6,

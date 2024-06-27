@@ -14,15 +14,21 @@ public class GameLogger : ScriptableObject
 
     public string BuildVersion { get; private set;}
     private float _startTime;
-    private List<LogEntry> _logs = new();
+    private readonly List<LogEntry> _logs = new();
 
+    public void Reset()
+    {
+        _logs.Clear();
+        _startTime = Time.time;
+    }
+    
     private void OnEnable()
     {
-        _startTime = Time.time;
         BuildVersion = Application.version;
+        Reset();
     }
 
-    public void LogAction(string action, string objectName)
+    private void LogAction(string action, string objectName)
     {
         LogEntry logEntry = new LogEntry
         {
@@ -56,11 +62,6 @@ public class GameLogger : ScriptableObject
     public void DeclineChallenge(Challenge pChallenge)
     {
         LogAction("DeclineChallenge", pChallenge.name);
-    }
-
-    public void ClearLogs()
-    {
-        _logs.Clear();
     }
 
     public string ToJson()

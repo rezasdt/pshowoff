@@ -12,9 +12,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Int32Variable riskVariable;
     [SerializeField] private Int32Variable riskCapacityVariable;
     [SerializeField] private MachineControllerRuntimeSet mControllerRuntimeSet;
+    [SerializeField] private BoolVariable isPlaying;
 
     void Start()
     {
+        isPlaying.Value = true;
         moneyVariable.Reset();
         riskVariable.Reset();
         riskCapacityVariable.Reset();
