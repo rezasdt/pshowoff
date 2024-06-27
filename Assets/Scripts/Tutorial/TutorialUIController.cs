@@ -63,7 +63,6 @@ public class TutorialUIController : MonoBehaviour
         videoPlayer.gameObject.SetActive(true);
         string videoPath =
             System.IO.Path.Combine(Application.streamingAssetsPath, tutorial.tutorialList[pIndex].VideoFileName);
-        print(videoPath);
         videoPlayer.url = videoPath;
         videoPlayer.Play();
     }
