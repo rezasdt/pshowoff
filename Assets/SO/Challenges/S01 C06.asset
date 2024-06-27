@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: S01 C06
   m_EditorClassIdentifier: 
   <Title>k__BackingField: Develop a Training Program for Employees
-  <Description>k__BackingField: 
+  <Description>k__BackingField: Create a training program to enhance employee skills
+    and productivity.
   <Cost>k__BackingField: 450
   <SuccessChance>k__BackingField: 70
   <RewardAmount>k__BackingField: 1200

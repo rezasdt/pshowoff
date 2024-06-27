@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: S02 C06
   m_EditorClassIdentifier: 
   <Title>k__BackingField: Conduct a Customer Appreciation Event
-  <Description>k__BackingField: 
+  <Description>k__BackingField: Host an event to show appreciation for your customers
+    and build loyalty.
   <Cost>k__BackingField: 850
   <SuccessChance>k__BackingField: 70
   <RewardAmount>k__BackingField: 2000

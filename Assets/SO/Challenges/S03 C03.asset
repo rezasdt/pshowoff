@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: S03 C03
   m_EditorClassIdentifier: 
   <Title>k__BackingField: Partner with a Non-Profit Organization
-  <Description>k__BackingField: 
+  <Description>k__BackingField: Collaborate with a non-profit to enhance your brand
+    image and contribute to a cause.
   <Cost>k__BackingField: 2000
   <SuccessChance>k__BackingField: 85
   <RewardAmount>k__BackingField: 4000

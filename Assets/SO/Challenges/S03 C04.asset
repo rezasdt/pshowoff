@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: S03 C04
   m_EditorClassIdentifier: 
   <Title>k__BackingField: Launch an Email Marketing Campaign
-  <Description>k__BackingField: 
+  <Description>k__BackingField: Start an email marketing campaign to reach potential
+    customers and increase sales.
   <Cost>k__BackingField: 1500
   <SuccessChance>k__BackingField: 80
   <RewardAmount>k__BackingField: 3000

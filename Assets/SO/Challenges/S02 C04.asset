@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: S02 C04
   m_EditorClassIdentifier: 
   <Title>k__BackingField: Develop a New Product Line
-  <Description>k__BackingField: 
+  <Description>k__BackingField: Create and launch a new line of products to expand
+    your market.
   <Cost>k__BackingField: 1200
   <SuccessChance>k__BackingField: 65
   <RewardAmount>k__BackingField: 3000

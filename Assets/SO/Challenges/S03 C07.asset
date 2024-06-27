@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: S03 C07
   m_EditorClassIdentifier: 
   <Title>k__BackingField: Offer a Free Trial for Your Product
-  <Description>k__BackingField: 
+  <Description>k__BackingField: Provide a free trial to encourage potential customers
+    to try and buy your product.
   <Cost>k__BackingField: 1400
   <SuccessChance>k__BackingField: 80
   <RewardAmount>k__BackingField: 4000

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: S02 C03
   m_EditorClassIdentifier: 
   <Title>k__BackingField: Run a Crowdfunding Campaign
-  <Description>k__BackingField: 
+  <Description>k__BackingField: Initiate a crowdfunding campaign to raise funds for
+    a new project.
   <Cost>k__BackingField: 950
   <SuccessChance>k__BackingField: 90
   <RewardAmount>k__BackingField: 1600

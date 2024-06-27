@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: S01 C05
   m_EditorClassIdentifier: 
   <Title>k__BackingField: Launch a New Mobile App
-  <Description>k__BackingField: 
+  <Description>k__BackingField: Develop and release a mobile app to enhance customer
+    engagement and sales.
   <Cost>k__BackingField: 400
   <SuccessChance>k__BackingField: 60
   <RewardAmount>k__BackingField: 1400

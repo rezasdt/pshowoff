@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: S04 C03
   m_EditorClassIdentifier: 
   <Title>k__BackingField: Implement a Customer Feedback System
-  <Description>k__BackingField: 
+  <Description>k__BackingField: Set up a system to collect customer feedback and
+    make improvements.
   <Cost>k__BackingField: 1900
   <SuccessChance>k__BackingField: 65
   <RewardAmount>k__BackingField: 4000

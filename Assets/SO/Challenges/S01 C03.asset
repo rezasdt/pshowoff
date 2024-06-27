@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: S01 C03
   m_EditorClassIdentifier: 
   <Title>k__BackingField: Host a Webinar Series
-  <Description>k__BackingField: 
+  <Description>k__BackingField: Conduct a series of webinars to engage with a broader
+    audience and share knowledge.
   <Cost>k__BackingField: 350
   <SuccessChance>k__BackingField: 70
   <RewardAmount>k__BackingField: 1000

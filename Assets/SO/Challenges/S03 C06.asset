@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: S03 C06
   m_EditorClassIdentifier: 
   <Title>k__BackingField: Implement a Sustainability Program
-  <Description>k__BackingField: 
+  <Description>k__BackingField: Develop a program focused on sustainability to attract
+    eco-conscious customers.
   <Cost>k__BackingField: 1500
   <SuccessChance>k__BackingField: 75
   <RewardAmount>k__BackingField: 3500

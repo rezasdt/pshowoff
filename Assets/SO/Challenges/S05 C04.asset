@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: S05 C04
   m_EditorClassIdentifier: 
   <Title>k__BackingField: Redesign Your Website
-  <Description>k__BackingField: 
+  <Description>k__BackingField: Update your website to improve user experience and
+    attract more visitors.
   <Cost>k__BackingField: 2000
   <SuccessChance>k__BackingField: 75
   <RewardAmount>k__BackingField: 5000

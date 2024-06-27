@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: S05 C03
   m_EditorClassIdentifier: 
   <Title>k__BackingField: Create a Viral Video Campaign
-  <Description>k__BackingField: 
+  <Description>k__BackingField: Produce a video intended to go viral and significantly
+    increase brand visibility.
   <Cost>k__BackingField: 3000
   <SuccessChance>k__BackingField: 50
   <RewardAmount>k__BackingField: 10000
