@@ -22,7 +22,7 @@ MonoBehaviour:
 
       If you click on the machine, you will be able to see more details
       about it.'
-    <VideoFileName>k__BackingField: 
+    <VideoFileName>k__BackingField: v1.mp4
   - <Description>k__BackingField: 'Watch as your revenue increases. Your goal is
       to maximize your earnings and grow your business.
 
@@ -35,10 +35,10 @@ MonoBehaviour:
       costs money and has a success rate. Let''s upgrade this machine to level 2.
 
       Great!
-      Your machine is now level 2 and generates $2 per second.
+      Your machine is now level 2 and generates $17 per second.
 
 '
-    <VideoFileName>k__BackingField: 
+    <VideoFileName>k__BackingField: v2.mp
   - <Description>k__BackingField: 'Upgrading isn''t always successful. If an upgrade
       fails, the machine is destroyed, but you can repair it.
 
@@ -47,10 +47,10 @@ MonoBehaviour:
 
       You
       can also choose to sell the destroyed machine but for 25% of its initial value.'
-    <VideoFileName>k__BackingField: 
+    <VideoFileName>k__BackingField: v3.mp4
   - <Description>k__BackingField: Sometimes you need to make room for better machines.
       Let's sell a machine. You will get 50% of its initial price.
-    <VideoFileName>k__BackingField: 
+    <VideoFileName>k__BackingField: v4.mp4
   - <Description>k__BackingField: "You can take on challenges to earn extra money
       once 3 days. Let's try one. But be aware you will have 10 seconds to make up
       your mind on accepting or not the challenge.\r\nThese challenges have a risk
@@ -58,7 +58,7 @@ MonoBehaviour:
       Let\u2019s take this challenge and see what happens.\r\nNow if the challenge
       fails, you will end up losing the funds paid for it and you will also see the
       reason of failing it.\r"
-    <VideoFileName>k__BackingField: 
+    <VideoFileName>k__BackingField: v5.mp4
   - <Description>k__BackingField: 'As you earn more money, you''ll progress through
       different business stages, unlocking better machines. The stages are as it
       follows: startup, growth, expansion, maturity and unicorn.
