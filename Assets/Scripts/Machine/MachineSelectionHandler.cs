@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using PrimeTween;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,6 +10,8 @@ public class MachineSelectionHandler : MonoBehaviour
     [SerializeField] private TooltipUIController tooltipUIController;
     [SerializeField] private RectTransform tooltip;
     [SerializeField] private RectTransform upgradeTooltip;
+    [SerializeField] private GameObject defectedIndicatorPrefab;
+    [SerializeField] private GameObject mainCamera;
     [Header("SO")]
     [SerializeField] private Int64Variable moneyVariable;
     [SerializeField] private Int32Variable riskVariable;
@@ -19,6 +23,7 @@ public class MachineSelectionHandler : MonoBehaviour
     private PlayerControls _playerControls;
     private PlayerControls.PlayerActions _playerActions;
     private GameObject _lastHoveredMachine;
+    private Dictionary<MachineController, GameObject> _defectedMachinesByIndicator = new();
 
     private void Awake()
     {
@@ -31,6 +36,7 @@ public class MachineSelectionHandler : MonoBehaviour
         pointInputHandler.OnMachineHover += OnMachineHover;
         pointInputHandler.OnClickAway += HideTooltips;
         ImprovedMachineController.UpgradeSuccess += LogMachineUpgradeResult;
+        ImprovedMachineController.UpgradeSuccess += CreateIndicatorOnDefected;
         _playerActions.Enable();
         _playerActions.Pan.started += OnPan;
     }
@@ -41,6 +47,7 @@ public class MachineSelectionHandler : MonoBehaviour
         pointInputHandler.OnMachineHover -= OnMachineHover;
         pointInputHandler.OnClickAway -= HideTooltips;
         ImprovedMachineController.UpgradeSuccess -= LogMachineUpgradeResult;
+        ImprovedMachineController.UpgradeSuccess -= CreateIndicatorOnDefected;
         _playerActions.Disable();
         _playerActions.Pan.started -= OnPan;
     }
@@ -87,6 +94,7 @@ public class MachineSelectionHandler : MonoBehaviour
         var selected = ((ImprovedMachineController)_selectedMachine);
         if (selected.RepairCost > moneyVariable.Value) return;
         gameLogger.RepairMachine(_selectedMachine.Machine);
+        DestroyIndicatorIfDefected(_selectedMachine);
         selected.Repair();
         moneyVariable.Value -= selected.RepairCost;
         HideTooltips();
@@ -124,6 +132,7 @@ public class MachineSelectionHandler : MonoBehaviour
         _selectedMachine.Platform.SetActive(true);
         moneyVariable.Value += _selectedMachine.ResaleValue;
         mControllerRuntimeSet.Remove(_selectedMachine);
+        DestroyIndicatorIfDefected(_selectedMachine);
         Destroy(_selectedMachine.gameObject);
         HideTooltips();
         gameLogger.SellMachine(_selectedMachine.Machine);
@@ -146,9 +155,30 @@ public class MachineSelectionHandler : MonoBehaviour
         tooltip.gameObject.SetActive(true);
     }
 
-    private void LogMachineUpgradeResult(bool pSuccess)
+    private void LogMachineUpgradeResult(ImprovedMachineController pImprovedMachineController)
     {
-        if (pSuccess) gameLogger.MachineUpgradeSuccess(_selectedMachine.Machine);
+        if (pImprovedMachineController.IsHealthy) gameLogger.MachineUpgradeSuccess(_selectedMachine.Machine);
         else gameLogger.MachineUpgradeFail(_selectedMachine.Machine);
+    }
+    
+    private void CreateIndicatorOnDefected(ImprovedMachineController pImprovedMachineController)
+    {
+        if (pImprovedMachineController.IsHealthy) return;
+        GameObject indicator = Instantiate(defectedIndicatorPrefab,
+            pImprovedMachineController.gameObject.transform.position + new Vector3(0, 1.75f, -0.95f),
+            mainCamera.transform.rotation);
+        var tween = Tween.ShakeLocalPosition(indicator.transform, strength: new Vector3(0, 0.5f), duration: 2, frequency: 1);
+        tween.SetRemainingCycles(-1);
+        _defectedMachinesByIndicator.Add(pImprovedMachineController, indicator);
+    }
+
+    private void DestroyIndicatorIfDefected(MachineController pMachineController)
+    {
+        if (_selectedMachine is ImprovedMachineController improvedMachineController)
+        {
+            if (improvedMachineController.IsHealthy) return;
+            Destroy(_defectedMachinesByIndicator[pMachineController]);
+            _defectedMachinesByIndicator.Remove(_selectedMachine);
+        }
     }
 }

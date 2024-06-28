@@ -28,9 +28,9 @@ public class NotificationManager : MonoBehaviour
         newNotification.Init(pTitle, pDescription, pDuration);
     }
 
-    private void OnUpgradeSuccessFail(bool pResult)
+    private void OnUpgradeSuccessFail(ImprovedMachineController pImprovedMachineController)
     {
-        if (pResult == true) return;
+        if (pImprovedMachineController.IsHealthy) return;
         Create("Upgrade Failed!", "You can repair the machine or sell it.");
     }
 

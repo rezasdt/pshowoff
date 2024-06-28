@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ImprovedMachineController : MachineController
 {
-    public static event System.Action<bool> UpgradeSuccess = delegate { };
+    public static event System.Action<ImprovedMachineController> UpgradeSuccess = delegate { };
     public bool IsHealthy { get; private set; }
     public override int ResaleValue
     {
@@ -20,14 +20,13 @@ public class ImprovedMachineController : MachineController
         if (IsHealthy)
         {
             AudioManager.Instance.PlaySoundeffect(AudioManager.Instance.Sounds.BuildSuccess);
-            UpgradeSuccess.Invoke(true);
             StartCoroutine(EarnCoroutine());
         }
         else
         {
             AudioManager.Instance.PlaySoundeffect(AudioManager.Instance.Sounds.BuildFail);
-            UpgradeSuccess.Invoke(false);
         }
+        UpgradeSuccess.Invoke(this);
     }
 
     public int RepairCost
