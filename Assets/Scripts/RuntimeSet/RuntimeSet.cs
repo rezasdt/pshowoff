@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class RuntimeSet<T> : ScriptableObject
 {
-    protected HashSet<T> Items { get; private set; } = new();
+    public HashSet<T> Items { get; private set; } = new();
 
     public virtual void Add(T item)
     {

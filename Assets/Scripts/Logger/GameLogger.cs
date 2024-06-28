@@ -1,11 +1,15 @@
 using System.Collections.Generic;
+using Unity.Services.CloudSave;
 using UnityEngine;
+using Newtonsoft.Json;
+using Unity.Services.Authentication;
+using Unity.Services.Core;
 
 [CreateAssetMenu]
 public class GameLogger : ScriptableObject
 {
     [System.Serializable]
-    private class LogEntry
+    public class LogEntry
     {
         public string action;
         public string objectName;
@@ -53,6 +57,16 @@ public class GameLogger : ScriptableObject
     {
         LogAction("UpgradeMachine", pMachine.name);
     }
+    
+    public void MachineUpgradeSuccess(MachineBase pMachine)
+    {
+        LogAction("MachineUpgradeSuccess", pMachine.name);
+    }
+    
+    public void MachineUpgradeFail(MachineBase pMachine)
+    {
+        LogAction("MachineUpgradeFail", pMachine.name);
+    }
 
     public void AcceptChallenge(Challenge pChallenge)
     {
@@ -63,9 +77,50 @@ public class GameLogger : ScriptableObject
     {
         LogAction("DeclineChallenge", pChallenge.name);
     }
-
-    public string ToJson()
+    
+    public void ChallengeSuccess(Challenge pChallenge)
     {
-        return JsonUtility.ToJson(_logs, false);
+        LogAction("ChallengeSuccess", pChallenge.name);
+    }
+    
+    public void ChallengeFail(Challenge pChallenge)
+    {
+        LogAction("ChallengeFail", pChallenge.name);
+    }
+    
+    public void RepairMachine(MachineBase pMachine)
+    {
+        LogAction("RepairMachine", pMachine.name);
+    }
+    
+    public void StagePromote(int pNewStage)
+    {
+        LogAction("StagePromote", pNewStage.ToString());
+    }
+    public void StageDemote(int pNewStage)
+    {
+        LogAction("StageDemote", pNewStage.ToString());
+    }
+
+    private string ToJson()
+    {
+        var data = new
+        {
+            BuildVersion = this.BuildVersion,
+            Logs = _logs
+        };
+        return JsonConvert.SerializeObject(data);
+    }
+
+    public async void CloudSaveLog()
+    {
+        var playerData = new Dictionary<string, object>{
+          {$"Log_{System.DateTime.Now:yyMMdd_HHmm}", ToJson()}
+        };
+        try
+        {
+            await CloudSaveService.Instance.Data.Player.SaveAsync(playerData);
+        }
+        catch { }
     }
 }

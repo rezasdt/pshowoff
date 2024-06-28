@@ -45,10 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   freePlatformTag:
-    tag: 
+    tag: Untagged
   reservedPlatformTag:
-    tag: 
+    tag: Untagged
   platformsParent: {fileID: 0}
   inputHandler: {fileID: 0}
   moneyVariable: {fileID: 0}
-  riskCapacityVariable: {fileID: 0}
+  mControllerRuntimeSet: {fileID: 0}

@@ -8,29 +8,9 @@ using Unity.Services.Authentication;
 using System.Threading.Tasks;
 using Unity.Services.Core;
 using Newtonsoft.Json.Linq;
-using UnityEngine.Serialization;
 
 public class LeaderboardManager : MonoBehaviour
 {
-    public class LeaderboardPlayer
-    {
-        public int rank;
-        public string playerName;
-        public int score;
-
-        public LeaderboardPlayer(int rank, string playerName, int score)
-        {
-            this.rank = rank;
-            this.playerName = playerName;
-            this.score = score;
-        }
-
-        public override string ToString()
-        {
-            return $"Rank: {rank}, Name: {playerName}, Score: {score}";
-        }
-    }
-
     [SerializeField] private string leaderboardId = "top_players";
     [SerializeField] private GameObject leaderboardView;
     [SerializeField] private RectTransform container;
@@ -40,8 +20,8 @@ public class LeaderboardManager : MonoBehaviour
     [SerializeField] private LeaderboardEntryUI entryOtherPrefab;
     [SerializeField] private Int64Variable moneyVariable;
     [SerializeField] private BoolVariable isPlaying;
-    private SortedDictionary<int, LeaderboardPlayer> _leaderboardPlayers = new();
-    private System.Action<LeaderboardPlayer> _createEntry;
+    private SortedDictionary<int, PlayerEntry> _leaderboardPlayers = new();
+    private System.Action<PlayerEntry> _createEntry;
     private string _cachedPlayerName = string.Empty;
 
     private async void OnEnable()
@@ -141,7 +121,7 @@ public class LeaderboardManager : MonoBehaviour
             string playerName = result["playerName"].ToString();
             int score = result["score"].ToObject<int>();
 
-            _leaderboardPlayers[rank] = new LeaderboardPlayer(rank, playerName, score);
+            _leaderboardPlayers[rank] = new PlayerEntry(rank, playerName, score);
         }
 
         // foreach (var entry in _leaderboardPlayers)
@@ -151,31 +131,31 @@ public class LeaderboardManager : MonoBehaviour
     }
     
     
-    private void CreateEntry1(LeaderboardPlayer pPlayer)
+    private void CreateEntry1(PlayerEntry pPlayerEntry)
     {
         var entry = Instantiate(entry1Prefab, container);
-        entry.Init(pPlayer.rank, pPlayer.playerName, pPlayer.score);
+        entry.Init(pPlayerEntry.rank, pPlayerEntry.playerName, pPlayerEntry.score);
         _createEntry = CreateEntry2;
     }
 
-    private void CreateEntry2(LeaderboardPlayer pPlayer)
+    private void CreateEntry2(PlayerEntry pPlayerEntry)
     {
         var entry = Instantiate(entry2Prefab, container);
-        entry.Init(pPlayer.rank, pPlayer.playerName, pPlayer.score);
+        entry.Init(pPlayerEntry.rank, pPlayerEntry.playerName, pPlayerEntry.score);
         _createEntry = CreateEntry3;
     }
 
-    private void CreateEntry3(LeaderboardPlayer pPlayer)
+    private void CreateEntry3(PlayerEntry pPlayerEntry)
     {
         var entry = Instantiate(entry3Prefab, container);
-        entry.Init(pPlayer.rank, pPlayer.playerName, pPlayer.score);
+        entry.Init(pPlayerEntry.rank, pPlayerEntry.playerName, pPlayerEntry.score);
         _createEntry = CreateEntryOther;
     }
 
-    private void CreateEntryOther(LeaderboardPlayer pPlayer)
+    private void CreateEntryOther(PlayerEntry pPlayerEntry)
     {
         var entry = Instantiate(entryOtherPrefab, container);
-        entry.Init(pPlayer.rank, pPlayer.playerName, pPlayer.score);
+        entry.Init(pPlayerEntry.rank, pPlayerEntry.playerName, pPlayerEntry.score);
     }
 
     private void OnDisable()
@@ -183,6 +163,25 @@ public class LeaderboardManager : MonoBehaviour
         foreach (Transform child in container)
         {
             Destroy(child.gameObject);
+        }
+    }
+    
+    class PlayerEntry
+    {
+        public int rank;
+        public string playerName;
+        public int score;
+
+        public PlayerEntry(int rank, string playerName, int score)
+        {
+            this.rank = rank;
+            this.playerName = playerName;
+            this.score = score;
+        }
+
+        public override string ToString()
+        {
+            return $"Rank: {rank}, Name: {playerName}, Score: {score}";
         }
     }
 }

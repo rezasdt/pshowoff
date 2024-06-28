@@ -13,6 +13,7 @@ public class MachineSelectionHandler : MonoBehaviour
     [SerializeField] private Int32Variable riskVariable;
     [SerializeField] private Int32Variable riskCapacityVariable;
     [SerializeField] private MachineControllerRuntimeSet mControllerRuntimeSet;
+    [SerializeField] private GameLogger gameLogger;
     
     private MachineController _selectedMachine;
     private PlayerControls _playerControls;
@@ -29,6 +30,7 @@ public class MachineSelectionHandler : MonoBehaviour
         pointInputHandler.OnSelect += OnSelect;
         pointInputHandler.OnMachineHover += OnMachineHover;
         pointInputHandler.OnClickAway += HideTooltips;
+        ImprovedMachineController.UpgradeSuccess += LogMachineUpgradeResult;
         _playerActions.Enable();
         _playerActions.Pan.started += OnPan;
     }
@@ -38,6 +40,7 @@ public class MachineSelectionHandler : MonoBehaviour
         pointInputHandler.OnSelect -= OnSelect;
         pointInputHandler.OnMachineHover -= OnMachineHover;
         pointInputHandler.OnClickAway -= HideTooltips;
+        ImprovedMachineController.UpgradeSuccess -= LogMachineUpgradeResult;
         _playerActions.Disable();
         _playerActions.Pan.started -= OnPan;
     }
@@ -83,6 +86,7 @@ public class MachineSelectionHandler : MonoBehaviour
     {
         var selected = ((ImprovedMachineController)_selectedMachine);
         if (selected.RepairCost > moneyVariable.Value) return;
+        gameLogger.RepairMachine(_selectedMachine.Machine);
         selected.Repair();
         moneyVariable.Value -= selected.RepairCost;
         HideTooltips();
@@ -91,17 +95,16 @@ public class MachineSelectionHandler : MonoBehaviour
     public void Upgrade()
     {
         if (_selectedMachine.Machine.Upgrade.Cost > moneyVariable.Value) return;
-        
+        gameLogger.UpgradeMachine(_selectedMachine.Machine);
         if (_selectedMachine.Machine is ImprovedMachine)
         {
             riskVariable.Value += 100 - ((ImprovedMachine)_selectedMachine.Machine).HealthySpawnChance;
         }
-        if (_selectedMachine.Machine.Upgrade != null)
+        if (_selectedMachine.Machine.Upgrade != null &&
+            _selectedMachine.Machine.Upgrade.Upgrade != null)
         {
             var amount = 100 - _selectedMachine.Machine.Upgrade.HealthySpawnChance;
             riskCapacityVariable.Value += amount;
-            if (_selectedMachine.Machine.Upgrade.Upgrade == null)
-                riskCapacityVariable.Value -= amount;
         }
         mControllerRuntimeSet.Remove(_selectedMachine);
         Destroy(_selectedMachine.gameObject);
@@ -123,6 +126,7 @@ public class MachineSelectionHandler : MonoBehaviour
         mControllerRuntimeSet.Remove(_selectedMachine);
         Destroy(_selectedMachine.gameObject);
         HideTooltips();
+        gameLogger.SellMachine(_selectedMachine.Machine);
     }
 
     private void HideTooltips()
@@ -140,5 +144,11 @@ public class MachineSelectionHandler : MonoBehaviour
         tooltipUIController.Init(selectedMachine);
         tooltip.transform.position = pTooltipPosition;
         tooltip.gameObject.SetActive(true);
+    }
+
+    private void LogMachineUpgradeResult(bool pSuccess)
+    {
+        if (pSuccess) gameLogger.MachineUpgradeSuccess(_selectedMachine.Machine);
+        else gameLogger.MachineUpgradeFail(_selectedMachine.Machine);
     }
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "RuntimeSets/MachineControllerSet")]
 public class MachineControllerRuntimeSet : RuntimeSet<MachineController>
 {
-    public int Value { get; private set; }
+    public int TotalValue { get; private set; }
     
     public override void Add(MachineController item)
     {
@@ -25,10 +25,10 @@ public class MachineControllerRuntimeSet : RuntimeSet<MachineController>
 
     private void CalculateMachinesValue()
     {
-        Value = 0;
+        TotalValue = 0;
         foreach (var item in Items)
         {
-            Value += item.ResaleValue;
+            TotalValue += item.ResaleValue;
         }
     }
 }

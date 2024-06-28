@@ -6,18 +6,19 @@ public class NotificationManager : MonoBehaviour
     [SerializeField] private RectTransform container;
     [SerializeField] private NotificationUIController notificationPrefab;
     [SerializeField] private StageManager stageManager;
-
+    [Header("SO")]
+    [SerializeField] private GameLogger gameLogger;
     private int? _formerStage;
     
     private void OnEnable()
     {
-        ImprovedMachineController.OnDefectedUpgrade += OnUpgradeFail;
+        ImprovedMachineController.UpgradeSuccess += OnUpgradeSuccessFail;
         stageManager.OnStageChange += OnStageChange;
     }
 
     private void OnDisable()
     {
-        ImprovedMachineController.OnDefectedUpgrade -= OnUpgradeFail;
+        ImprovedMachineController.UpgradeSuccess -= OnUpgradeSuccessFail;
         stageManager.OnStageChange -= OnStageChange;
     }
 
@@ -27,8 +28,9 @@ public class NotificationManager : MonoBehaviour
         newNotification.Init(pTitle, pDescription, pDuration);
     }
 
-    private void OnUpgradeFail()
+    private void OnUpgradeSuccessFail(bool pResult)
     {
+        if (pResult == true) return;
         Create("Upgrade Failed!", "You can repair the machine or sell it.");
     }
 
@@ -43,10 +45,12 @@ public class NotificationManager : MonoBehaviour
         if (pNewStage > _formerStage.Value)
         {
             Create("Stage Promotion!", "You have advanced to a new stage and unlocked new machines.");
+            gameLogger.StagePromote(pNewStage);
         }
         else
         {
             Create("Stage Demotion!", "You have been demoted to a lower stage. Some machines are locked again.");
+            gameLogger.StageDemote(pNewStage);
         }
 
         _formerStage = pNewStage;

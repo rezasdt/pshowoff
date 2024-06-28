@@ -1,9 +1,11 @@
 using System.Collections;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject outcome;
+    [SerializeField] private ChallengeManager challengeManger;
     [Header("SO")]
     [SerializeField] private Int64Variable moneyVariable;
     [SerializeField] private Int32Variable daysTotalVariable;
@@ -13,6 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Int32Variable riskCapacityVariable;
     [SerializeField] private MachineControllerRuntimeSet mControllerRuntimeSet;
     [SerializeField] private BoolVariable isPlaying;
+    [SerializeField] private GameLogger gameLogger;
 
     void Start()
     {
@@ -21,6 +24,7 @@ public class GameManager : MonoBehaviour
         riskVariable.Reset();
         riskCapacityVariable.Reset();
         mControllerRuntimeSet.Clear();
+        gameLogger.Reset();
         
         timerVariable.Value = daysTotalVariable.Value * dayLengthSecVariable.Value;
         StartCoroutine(TimerCoroutine());
@@ -35,9 +39,15 @@ public class GameManager : MonoBehaviour
             timerVariable.Value -= 1;
         }
 
-        moneyVariable.Value += mControllerRuntimeSet.Value;
-        Time.timeScale = 0f;
+        moneyVariable.Value += mControllerRuntimeSet.TotalValue;
+        foreach (var machine in mControllerRuntimeSet.Items)
+        {
+            machine.StopAllCoroutines();
+        }
+        challengeManger.StopAllCoroutines();
         outcome.gameObject.SetActive(true);
-    }
 
+        yield return new WaitForSeconds(3f);
+        gameLogger.CloudSaveLog();
+    }
 }

@@ -336,18 +336,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
-        m_MethodName: ResumeGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 5020296907191692228}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
         m_MethodName: LoadScene
@@ -598,6 +586,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resultText: {fileID: 8298363249919839909}
+  leaderboard: {fileID: 0}
   moneyVariable: {fileID: 11400000, guid: 66597e678d92171408ecdff117fe9830, type: 2}
   riskVariable: {fileID: 11400000, guid: 9f795ea0032687f4da5fc24590c36564, type: 2}
   riskCapacityVariable: {fileID: 11400000, guid: 871faa578bed57d4784d58dcf0fa0460,

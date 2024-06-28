@@ -82,6 +82,6 @@ public class UIManager : MonoBehaviour
         _sb.Append(moneyVariable.Value.ToString("N0"));
         _sb.Append("$");
         moneyText.text = _sb.ToString();
-        thresholdSlider.value = moneyVariable.Value + mControllerRuntimeSet.Value;
+        thresholdSlider.value = moneyVariable.Value + mControllerRuntimeSet.TotalValue;
     }
 }

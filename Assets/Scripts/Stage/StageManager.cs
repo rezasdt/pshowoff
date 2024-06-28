@@ -37,7 +37,7 @@ public class StageManager : MonoBehaviour
         int currentStage = -1;
         foreach (int threshold in _stageThresholds)
         {
-            if (_moneyVariable.Value + mControllerRuntimeSet.Value > threshold) currentStage++;
+            if (_moneyVariable.Value + mControllerRuntimeSet.TotalValue > threshold) currentStage++;
         }
         return Mathf.Min(currentStage, _stageThresholds.Count - 2);
     }

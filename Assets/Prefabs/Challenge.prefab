@@ -233,6 +233,7 @@ MonoBehaviour:
   details: {fileID: 8574175059883770881}
   moneyVariable: {fileID: 11400000, guid: 66597e678d92171408ecdff117fe9830, type: 2}
   riskVariable: {fileID: 11400000, guid: 9f795ea0032687f4da5fc24590c36564, type: 2}
+  gameLogger: {fileID: 11400000, guid: 06e7bea4622b99a45a487606e6f86596, type: 2}
 --- !u!1 &3748073882679989747
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,6 +14,7 @@ public class ChallengeUIController : MonoBehaviour
     [Header("SO")]
     [SerializeField] private Int64Variable moneyVariable;
     [SerializeField] private Int32Variable riskVariable;
+    [SerializeField] private GameLogger gameLogger;
 
     private Challenge _challenge;
     public void Init(Challenge pChallenge)
@@ -40,15 +41,18 @@ public class ChallengeUIController : MonoBehaviour
     public void Accept()
     {
         if (moneyVariable.Value < _challenge.Cost) return;
+        gameLogger.AcceptChallenge(_challenge);
         moneyVariable.Value -= _challenge.Cost;
         if (Random.Range(0, 100) < _challenge.SuccessChance)
         {
             moneyVariable.Value += _challenge.RewardAmount;
             OnChallengeSuccess.Invoke(true, _challenge.SuccessMessage);
+            gameLogger.ChallengeSuccess(_challenge);
         }
         else
         {
             OnChallengeSuccess.Invoke(false, _challenge.FailMessage);
+            gameLogger.ChallengeFail(_challenge);
         }
         riskVariable.Value += 100 - _challenge.SuccessChance;
         Destroy(gameObject);
@@ -56,6 +60,7 @@ public class ChallengeUIController : MonoBehaviour
 
     public void Decline()
     {
+        gameLogger.DeclineChallenge(_challenge);
         Destroy(gameObject);
     }
 }
